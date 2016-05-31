@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>audio H5音乐按钮</title>
+	<style type="text/css">
+		@keyframes rotate{
+			0%{transform:rotate(0deg);}
+			100%{transform:rotate(360deg);}
+		}
+
+		@-webkit-keyframes rotate{
+			0%{-webkit-transform:rotate(0deg);}
+			100%{-webkit-transform:rotate(360deg);}
+		}
+
+
+		.content{width:300px;height:300px;margin:0 auto;border:1px solid red;}
+		.musicBtn{display: block;width:44px;height:44px;
+	         background:url(source/music.png) no-repeat;
+	         margin:0 auto;
+	         margin-top:100px;
+	         
+		}
+
+		.playing{animation:rotate 2s linear infinite;
+	         -webkit-animation:rotate 2s linear infinite;
+        }
+
+	</style>
+</head>
+<body>
+ 
+<div class="content">
+
+ <span class="musicBtn playing" id="btn"></span>
+ <audio id="music" src="source/dielian.mp3" loop autoplay></audio>
+
+</div>
+
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/touch.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var MBTN = $('.musicBtn');
+    var AUDIO = document.getElementById('music');
+	console.log(AUDIO);
+
+	// MBTN.on('click', function(){
+        
+	// 	if(AUDIO.paused){
+	// 		AUDIO.play();
+	// 		setBtnPlay()
+	// 		return;
+	// 	}
+
+	// 	AUDIO.pause();
+	// 	setBtnPause()
+
+	// });
+
+	MBTN.on('tap', function(){
+
+		if(AUDIO.paused){
+			AUDIO.play();
+			setBtnPlay()
+			return;
+		}
+
+		AUDIO.pause();
+		setBtnPause()
+
+	});
+
+	function setBtnPlay(){
+		MBTN.addClass('playing');
+	}
+
+	function setBtnPause(){
+       MBTN.removeClass('playing');
+	}
+})
+</script>
+</body>
+</html>

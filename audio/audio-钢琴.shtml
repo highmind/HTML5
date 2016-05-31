@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>audio-钢琴</title>
+
+<style type="text/css">
+ .container{width:800px;margin:0 auto;margin-top:160px;overflow: hidden;}
+ .box{margin-left:10px;float:left;width:100px;height:100px;font-size:40px;text-align: center;color:#fff;line-height:100px;font-family:"微软雅黑";cursor:pointer;}
+ .box1{background-color: red;}
+ .box2{background-color: #ff7800;}
+ .box3{background-color: #fff000;}
+
+ .box4{background-color: #4aff68;}
+ .box5{background-color: #03fffc;}
+ .box6{background-color: #032dff;}
+ .box7{background-color: #eb07ff;}
+ 
+ .down{box-shadow: inset 0 0 20px rgba(28,28,28,0.8)}
+</style>
+
+</head>
+<body>
+ 
+<div class="container">
+    
+    <div class="box box1" id="btnQ" data-key="Q">
+    	Q
+    </div>
+
+    <div class="box box2" id="btnW" data-key="W">
+    	W
+    </div>
+
+    <div class="box box3" id="btnE" data-key="E">
+    	E
+    </div>
+
+    <div class="box box4" id="btnR" data-key="R">
+    	R
+    </div>
+
+    <div class="box box5" id="btnT" data-key="T">
+    	T
+    </div>
+
+    <div class="box box6" id="btnY" data-key="Y">
+    	Y
+    </div>
+    <div class="box box7" id="btnU" data-key="U">
+    	U
+    </div>
+
+</div>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+
+	(function(){
+     
+	     var keyData = [
+	     	{key: 'Q', src:'source/yinjie/01.mp3'},
+	     	{key: 'W', src:'source/yinjie/02.mp3'},
+	     	{key: 'E', src:'source/yinjie/03.mp3'},
+	     	{key: 'R', src:'source/yinjie/04.mp3'},
+	     	{key: 'T', src:'source/yinjie/05.mp3'},
+	     	{key: 'Y', src:'source/yinjie/06.mp3'},
+	     	{key: 'U', src:'source/yinjie/07.mp3'},
+	     ];
+
+		$(document).keydown(function (event) {
+			//将键盘编码转换成  键盘字母
+			var code = String.fromCharCode(event.keyCode)
+
+			    for(var i = 0; i < keyData.length; i++){
+
+	               if(code == keyData[i].key){
+
+	               	console.log(keyData[i].src);
+	 
+	               	 var myAudio = new Audio( keyData[i].src);
+	               	 
+	               	 $('#btn' + code).addClass('down'); // 添加 按下样式
+	               	 myAudio.play();                  
+
+	               }
+
+			     }
+		});
+
+		$('.box').mousedown(function(){
+			
+			var code = $(this).attr('data-key');
+			  for(var i = 0; i < keyData.length; i++){
+
+	               if(code == keyData[i].key){
+
+	               	console.log(keyData[i].src);
+	 
+	               	 var myAudio = new Audio( keyData[i].src);
+	               	 
+	               	 $('#btn' + code).addClass('down'); // 添加 按下样式
+	               	 myAudio.play();                  
+
+	               }
+
+			     }
+
+		});
+
+		$('.box').mouseup(function(){
+			$('.box').removeClass('down');
+		});
+
+		$(document).keyup(function (event) {
+			$('.box').removeClass('down');
+		});
+     
+	
+   })();
+
+}
+</script>
+</body>
+</html>

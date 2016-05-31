@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>audio api</title>
+
+<style type="text/css">
+ .content{width:500px;height:300px;border:1px solid #333;}
+</style>
+
+</head>
+<body>
+ 
+<div class="content">
+	<audio id="myAudio" controls loop>
+    	<source src="source/jiangshanmeiren.mp3">
+        <p>您的浏览器不支持 audio</p>
+    </audio>
+  <p>  
+    <button id="playBtn">播放</button>
+    <button id="returnBtn">从头开始</button>
+    <button id="pauseBtn">暂停</button>
+</p>
+    <script type="text/javascript">
+window.onload=function(){
+
+	(function(){
+
+		var myAudio=document.getElementById('myAudio');       //获取 audio对象
+		var playBtn=document.getElementById('playBtn');       //获取播放按钮
+		var returnBtn=document.getElementById('returnBtn');   //获取重置按钮
+		var pauseBtn=document.getElementById('pauseBtn');     // 获取暂停按钮
+	
+	    //播放按钮事件
+		playBtn.onclick=function(){
+			audioPlay();
+		}
+			
+        //重置按钮
+		returnBtn.onclick=function(){
+			audioReturn();
+		}
+				
+	    // 暂停按钮
+		pauseBtn.onclick=function(){
+			audioPause();
+		}
+
+
+			
+		function audioPlay(){
+			myAudio.play();
+		}
+			
+		function audioReturn(){
+			myAudio.currentTime=0;
+			myAudio.play();
+		}
+			
+		function audioPause(){
+			myAudio.pause();
+		}		
+		
+		})();
+	}
+</script>
+</body>
+</html>

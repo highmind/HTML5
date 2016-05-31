@@ -1,0 +1,50 @@
+body{position:relative;padding:0;margin:0;}
+html,body{position:relative;height:100%;overflow: hidden;}
+@keyframes rotate{
+	0%{transform:rotate(0deg);}
+	100%{transform:rotate(360deg);}
+}
+
+@-webkit-keyframes rotate{
+	0%{-webkit-transform:rotate(0deg);}
+	100%{-webkit-transform:rotate(360deg);}
+}
+
+#musicBtn{	
+	display: block;width:44px;height:44px;
+   background:url(../images/music.png) no-repeat;
+   background-size: cover;
+   position:absolute;z-index:100;right:20px;top:20px;        
+}
+
+.playing{animation:rotate 2s linear infinite;
+	   -webkit-animation:rotate 2s linear infinite;
+}
+
+#music{}
+
+.hide{display: none;}
+.main{position:relative;width:100%;height:100%;overflow: hidden;}
+.page{
+  color:#fff;
+  position:absolute;left:0;top:0;
+  width:100%;height:100%;
+  transition: all 0.3s linear;
+  transform: translate(0,0);
+  -webkit-transition: all 0.3s linear;
+  -webkit-transform: translate(0,0);
+}
+
+/*没进入屏幕的页面，在下方的页面*/
+.pageDown{-webkit-transform: translate(0,100%);transform: translate(0,100%);}
+
+/*没进入屏幕的页面，在上方的页面*/
+.pageUp{-webkit-transform: translate(0,-100%);transform: translate(0,-100%);}
+
+.page1{background-color: orange;}
+.page2{background-color: red;}
+.page3{background-color: blue;}
+.page4{background-color: green;}
+
+.arrow{width:20%;position:fixed;bottom:4px;left:40%;border:1px solid red;}
+

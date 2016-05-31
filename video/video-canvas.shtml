@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>video-canvas</title>
+<style>
+ 
+</style>
+</head>
+<body>
+    <video id="myVideo" width="500" height="300" controls autobuffer>
+      <source src="source/red_3.mp4">
+        <p>请在支持video的浏览器中使用</p>
+    </video>
+
+  <canvas id="myCanvas" width="500" height="300"></canvas>
+<script>
+(function(){
+  /*window.addEventListener("load",function(){
+    var videoObj = document.getElementById('myVideo');
+    var canvasObj = document.getElementById('myCanvas');
+    
+    videoObj.addEventListener("timeupdate",function(){
+      canvasObj.getContext("2d").drawImage(videoObj,0,0,500,300); 
+      },false);
+    
+    },false);
+    
+  
+  })();*/
+  
+window.addEventListener("load",function(){
+
+    var videoObj = document.getElementById('myVideo');
+    var canvasObj = document.getElementById('myCanvas');
+    var fps = 1000 / 30;
+    var w = canvasObj.width;
+    var h = canvasObj.height;
+    
+    setInterval(function(){
+      var ctx = canvasObj.getContext('2d');
+        ctx.drawImage(videoObj, 0, 0, w, h);
+        
+      var imageData = ctx.getImageData(0, 0, w, h);
+        covertImageToGray(imageData.data);
+        ctx.putImageData(imageData, 0, 0);
+        
+        }, fps);
+    
+      },true);
+      
+    function covertImageToGray(data){
+
+      var len = data.length;
+      var pixels = len / 4;
+
+      for(var i = 0; i < pixels; i++){
+        var r = data[i * 4];
+        var g = data[i * 4 + 1];
+        var b = data[i * 4 + 2];
+        var gray = parseInt((11 * r + 16 * g + 5 * b) / 32);
+        data[i * 4] = gray;
+        data[i * 4 + 1] = gray;
+        data[i * 4 + 2] = gray;
+      }
+
+    }  
+
+})();
+      
+</script>
+</body>
+</html>

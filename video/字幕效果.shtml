@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>字幕效果</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/video.js"></script>
+<style>
+    .container{width:500px;margin:0 auto;}
+    #monitor{position:relative;width:500px;height:310px;margin:0 auto;}
+    #telop{position:absolute;left:0;bottom:40px;width:100%;height:40px;
+        color:#fff;
+        font-family:"微软雅黑";
+        font-size:20px;line-height:40px;
+        text-align: center;
+    }
+    .txtArea{width:500px;height:160px;}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <div id="monitor">
+
+        <video width="500" height="300" id="myVideo" controls>
+            <source src="source/red_3.mp4">
+        </video>
+
+        <div id="telop"></div>
+
+    </div> 
+
+    <form>
+
+      <p>字幕数据:</p>
+        <textarea id="telopCommand" class="txtArea"></textarea>
+    </form>   
+
+</div>    
+</body>
+</html>
