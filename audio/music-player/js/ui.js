@@ -4,7 +4,7 @@ $(document).ready(function(){
 	(function(){	
 
 		var myAudio = new Audio();
-			myAudio.setAttribute('src','songs/song1.mp3');		
+			myAudio.setAttribute('src','songs/jiangshanmeiren.mp3');		
 			myAudio.volume = 0.5;	
 				
 		$('#playBtn').click(function(){
