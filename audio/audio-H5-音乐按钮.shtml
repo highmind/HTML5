@@ -46,20 +46,6 @@ $(document).ready(function(){
 
 	var MBTN = $('.musicBtn');
     var AUDIO = document.getElementById('music');
-	console.log(AUDIO);
-
-	// MBTN.on('click', function(){
-        
-	// 	if(AUDIO.paused){
-	// 		AUDIO.play();
-	// 		setBtnPlay()
-	// 		return;
-	// 	}
-
-	// 	AUDIO.pause();
-	// 	setBtnPause()
-
-	// });
 
 	MBTN.on('tap', function(){
 
