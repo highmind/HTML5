@@ -41,10 +41,10 @@ html,body{position:relative;height:100%;overflow: hidden;}
 /*没进入屏幕的页面，在上方的页面*/
 .pageUp{-webkit-transform: translate(0,-100%);transform: translate(0,-100%);}
 
-.page1{background-color: orange;}
-.page2{background-color: red;}
-.page3{background-color: blue;}
-.page4{background-color: green;}
-
-.arrow{width:20%;position:fixed;bottom:4px;left:40%;border:1px solid red;}
+.page1{background:url(../images/bg1.jpg) no-repeat;background-size: cover;}
+.page2{background:url(../images/bg2.jpg) no-repeat;background-size: cover;}
+.page3{background:url(../images/bg3.jpg) no-repeat;background-size: cover;}
+.page4{background:url(../images/bg4.jpg) no-repeat;background-size: cover;}
+.page5{background:url(../images/bg5.jpg) no-repeat;background-size: cover;}
+.arrow{width:20%;position:fixed;bottom:4px;left:40%;}
 

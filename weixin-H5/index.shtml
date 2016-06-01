@@ -9,27 +9,34 @@
 </head>
 <body>
 <div class="main">
-    <span class="musicBtn playing" id="musicBtn"></span>
-   <div class="page page1">
-     <h1 class="animated fadeInDown">我的简历</h1>
-     <p class="animated flipInY">姓名：某某</p>
-     <p>年龄：xx岁</p>
-     <p>联系方式：<a href="tel:186xxxxxx">186xxxxxx</a></p>
-   </div>
+   <span class="musicBtn playing" id="musicBtn"></span>
 
-   <div class="page page2 pageDown">
-     <h1 class="animated fadeInDown hide">技能</h1>
-     <p class="animated fadeInDown hide">掌握css，javascript，能熟练实现页面效果</p>
-   </div>
+  <div class="page page1">
+    <h1>封面</h1>
+  </div>
 
-    <div class="page page3 pageDown">
-     <h3>3</h3>
-    </div>
+  <div class="page page2 pageDown">
+    <h1 class="animated fadeInDown hide">基本信息</h1>
+    <p class="animated flipInY hide">姓名：某某</p>
+    <p>年龄：xx岁</p>
+    <p>联系方式：<a href="tel:186xxxxxx">186xxxxxx</a></p>
+  </div>
 
-    <div class="page page4 pageDown">
-     <h4>4</h4>
-    </div>
-   
+  <div class="page page3 pageDown">
+    <h3>3</h3>
+    <h1 class="animated fadeInDown hide">技能</h1>
+    <p class="animated fadeInDown hide">掌握css，javascript，能熟练实现页面效果</p>
+  </div>
+
+  <div class="page page4 pageDown">
+    <h4>工作经历</h4>
+    <p class="animated fadeInDown hide">掌握css，javascript，能熟练实现页面效果</p>
+  </div>
+
+  <div class="page page4 pageDown">
+    <h4>自我评价</h4>
+  </div>
+     
    <img class="arrow" src="images/arrow.png" alt="">
 
 </div> 
@@ -83,7 +90,7 @@
 </script>
 
 <!-- 音乐 -->
-  <audio  id="music" src="music.mp3" autoplay  loop="loop"></audio>   
+  <audio  id="music" src="source/music.mp3" autoplay  loop="loop"></audio>   
 </body>
 
 </html>
