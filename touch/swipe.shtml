@@ -86,7 +86,7 @@ function swipe(obj, direction, callback){
 }    
 
 var main = document.getElementById('main');
-    
+
 swipe(main, 'left',function(){
 	TXT.innerHTML = 'swipeLeft';
 	console.log('left');
