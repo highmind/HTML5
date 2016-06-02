@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>requestAnimationFrame</title>
+<style>
+a{text-decoration: none;}
+#box{position:absolute;left:0;top:0;width:100px;height:100px;background-color:orange;}
+.btnWrap{position: absolute;left:0;top:200px;}
+</style>
+</head>
+<body>
+    <div id="box">
+        
+    </div>
+<div class="btnWrap">
+ <a href="javascipt:void" id="startBtn">开始</a>
+ <a href="javascipt:void" id="stopBtn">停止</a>
+ </div>
+
+<script type="text/javascript">
+
+window.onload = function(){
+
+   var BOX = document.getElementById('box');
+   var startBtn = document.getElementById('startBtn');
+   var stopBtn = document.getElementById('stopBtn');
+   var left = 0;
+   var endLeft = 400;
+   var aniId = null;
+   function moveLeft(){
+        if(left > endLeft) return;
+        BOX.style.left = left + 'px';
+        console.log(left);
+        left++;
+        aniId = requestAnimationFrame(moveLeft);
+   }
+
+   startBtn.onclick = function(){
+      moveLeft();
+   }
+
+   stopBtn.onclick = function(){
+    console.log(1111);
+    cancelAnimationFrame(aniId);
+   }
+
+ 
+}    
+
+
+
+</script>
+</body>
+</html>
