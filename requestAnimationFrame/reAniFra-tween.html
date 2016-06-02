@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<title>requestAnimationFrame</title>
+<title>requestAnimationFrame使用 tween.js</title>
 <style>
 a{text-decoration: none;}
 #box{position:absolute;left:0;top:0;width:100px;height:100px;background-color:orange;}
@@ -30,14 +30,21 @@ window.onload = function(){
    var left = 0;
    var endLeft = 400;
    var aniId = null;
-   
+   var start = 0;
+
    function moveLeft(){
-        if(left > endLeft) return;
+
+        start++;
+
         BOX.style.left = left + 'px';
-        console.log(left);
-        left++;
-        aniId = requestAnimationFrame(moveLeft);
+
+        left = Tween.Circ.easeIn(start, BOX.offsetLeft, endLeft - BOX.offsetLeft, 300);
+
+        if(start < 300){
+            aniId = requestAnimationFrame(moveLeft);
+        }
    }
+
 
    startBtn.onclick = function(){
       moveLeft();
