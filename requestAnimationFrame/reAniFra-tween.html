@@ -28,19 +28,26 @@ window.onload = function(){
    var startBtn = document.getElementById('startBtn');
    var stopBtn = document.getElementById('stopBtn');
    var left = 0;
-   var endLeft = 400;
+   var endLeft = 1000;
    var aniId = null;
    var start = 0;
+   var duration = 100;
 
    function moveLeft(){
 
         start++;
 
+        
+        // Tween.Circ.easeIn(t, b, c, d)
+        // * t: current time（当前时间）；
+        // * b: beginning value（初始值）；比如初始left值
+        // * c: change in value（变化量）；比如最终坐标 - 每个状态的坐标
+        // * d: duration（持续次数）。
+        left = Tween.Bounce.easeIn(start, BOX.offsetLeft, endLeft - BOX.offsetLeft, duration);
         BOX.style.left = left + 'px';
+        console.log(left);
 
-        left = Tween.Circ.easeIn(start, BOX.offsetLeft, endLeft - BOX.offsetLeft, 300);
-
-        if(start < 300){
+        if(start < duration){
             aniId = requestAnimationFrame(moveLeft);
         }
    }
