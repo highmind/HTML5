@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>canvas-形状</title>
+
+<style type="text/css">
+#cvs{border:1px solid red;}
+</style>
+
+</head>
+<body>
+ 
+<canvas id="cvs" width="500" height="300"></canvas>
+<script type="text/javascript">
+	window.onload = function(){
+		var cvs = document.getElementById('cvs');
+
+		ctx = cvs.getContext('2d');
+        
+        ctx.beginPath();
+		ctx.moveTo(250, 50);   //开始画线
+		ctx.lineTo(50,250);
+        ctx.lineTo(450,250);
+        ctx.lineTo(250,50);   // 回到初始点
+        ctx.closePath();
+       
+        //填充内部
+        ctx.fillStyle = 'red';
+        ctx.fill();
+
+        //绘制轮廓
+        ctx.lineCap = 'square' //设置线的样式
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = 'orange';
+        ctx.stroke();
+
+      
+       
+
+
+
+
+	}
+</script>
+</body>
+</html>

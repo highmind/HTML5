@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>canvas</title>
+
+<style type="text/css">
+#cvs{border:1px solid red;}
+</style>
+
+</head>
+<body>
+ 
+<canvas id="cvs" width="500" height="300"></canvas>
+<script type="text/javascript">
+	window.onload = function(){
+		var cvs = document.getElementById('cvs');
+
+		ctx = cvs.getContext('2d');
+
+		//画第一条线
+		ctx.beginPath();   //重新开始一个新线段
+		ctx.moveTo(10,10);    //画笔移动到 画布的10,10位置
+		ctx.lineWidth = 10;   //线的宽度
+		ctx.strokeStyle = 'red';  // 线的颜色
+		ctx.lineCap = 'round';    //线两头的形状  round    (圆头) square   (类似方头)  button方头
+		ctx.lineTo(400, 10);  //再画布上画直线
+		ctx.stroke();         //画完，让直线显示出来
+
+        ctx.beginPath();
+		ctx.moveTo(10, 40);
+		ctx.lineWidth = 10;
+		ctx.strokeStyle = 'black';
+		ctx.lineCap = 'square';
+		ctx.lineTo(400, 40);
+		ctx.stroke();
+        
+        ctx.beginPath();
+		ctx.moveTo(10, 80);
+		ctx.lineWidth = 10;
+        ctx.strokeStyle = 'orange';
+        ctx.lineCap = 'butt';
+        ctx.lineTo(400, 80);
+        ctx.stroke();
+
+	}
+</script>
+</body>
+</html>
