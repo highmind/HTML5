@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>canvas time</title>
+
+<style type="text/css">
+#cvs{border:1px solid red;}
+</style>
+
+</head>
+<body>
+ 
+<canvas id="cvs"></canvas>
+<script type="text/javascript" src="js/digit.js"></script>
+<script type="text/javascript">
+var CanvasWidth = 1024;
+var CanvasHeight = 768;
+	window.onload = function(){
+		var cvs = document.getElementById('cvs');
+
+		ctx = cvs.getContext('2d');
+		cvs.width = CanvasWidth;
+		cvs.height = CanvasHeight;
+
+		render(ctx);
+	}
+
+function render(ctx){
+
+	var hours = 12;
+	var miniutes = 34;
+	var seconds = 56;
+
+	renderDigit(0, 0, parseInt(hours/10), ctx);
+
+}
+
+function renderDigit(x, y, num, ctx){
+	ctx.fillStyle = 'blue';
+
+	for(var i = 0; i < digin[num].length;i++){
+		for(var j = 0; j<digit[num][i].length; j++){
+			if(digit[num][i][j] == 1){
+				ctx.beginPath();
+				ctx.arc();
+				ctx.closePath();
+				ctx.fill();
+			}
+		}
+	}
+}
+
+
+</script>
+</body>
+</html>
