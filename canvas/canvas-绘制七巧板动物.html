@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>canvas-七巧板动物</title>
+
+<style type="text/css">
+#cvs{display:block;background-color:#79bbb5;margin:0 auto;}
+</style>
+
+</head>
+<body>
+ 
+<canvas id="cvs">
+    当前浏览器不支持canvas，请更换浏览器
+</canvas>
+
+<script type="text/javascript">
+
+// 形状坐标数据
+var data=[{p:[{x:171,y:394},{x:544,y:401},{x:362,y:577}],color:"#ff9763"},
+
+    {p:[{x:362,y:577},{x:544,y:401},{x:728,y:575}],color:"#08da9f"},
+    {p:[{x:544,y:400},{x:731,y:398},{x:642,y:492}],color:"#ffba5b"},
+    {p:[{x:642,y:492},{x:731,y:398},{x:827,y:492},{x:736,y:580}],color:"#a74876"},
+    {p:[{x:728,y:398},{x:826,y:398},{x:826,y:492}],color:"#32a4f0"},
+     {p:[{x:601,y:269},{x:714,y:269},{x:833,y:398},{x:719,y:398}],color:"#02ac96"},
+    {p:[{x:723,y:146},{x:601,y:269},{x:851,y:273}],color:"#a74876"},
+
+];
+
+    window.onload = function(){
+     
+
+		var canvas = document.getElementById('cvs');
+        // 可以使用js设置canvas大小
+            canvas.width =  1024;
+            canvas.height = 768;
+
+        if(!canvas.getContext('2d')){
+            alert("您的浏览器不支持 canvas");
+            return;
+        }
+
+        ctx = canvas.getContext('2d');
+        
+        //遍历并绘制各个形状
+        for(var i = 0; i < data.length; i++ ){
+            draw(data[i], ctx);
+        }
+
+        function draw(pos, ctx){
+            ctx.beginPath();
+            ctx.moveTo(pos.p[0].x, pos.p[0].y);
+            for(var i = 1; i < pos.p.length; i++){
+                ctx.lineTo(pos.p[i].x, pos.p[i].y);
+            }
+            ctx.closePath();
+
+            ctx.fillStyle = pos.color;
+            ctx.fill();
+        }
+
+
+
+	}
+</script>
+</body>
+</html>
