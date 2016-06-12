@@ -12,17 +12,49 @@
 </head>
 <body>
  
-<canvas id="cvs" width="500" height="300"></canvas>
+<canvas id="cvs" width="500" height="500"></canvas>
 <script type="text/javascript">
 	window.onload = function(){
 		var cvs = document.getElementById('cvs');
 
 		ctx = cvs.getContext('2d');
+		ctx.beginPath();
+		ctx.lineWidth = 5;
+        ctx.strokeStyle= '#f86826';
+        // arc(圆心X, 圆心Y, 半径, 开始PI, 结束PI, 顺时针)
+		ctx.arc(50, 50, 50, 0, 1.5*Math.PI,false);
         
+        ctx.stroke();
 
+      //arc2,使用closePath()
+        ctx.beginPath();
+        ctx.lineWidth = 5;
+        ctx.strokeStyle= '#f86826';
+        // arc(圆心X, 圆心Y, 半径, 开始PI, 结束PI, 顺时针)
+		ctx.arc(200, 200, 50, 0, 1.5*Math.PI,false);
+        ctx.closePath();
+        ctx.stroke();
+
+      //fill 填充
+        ctx.beginPath();
+        ctx.lineWidth = 5;
+        ctx.strokeStyle= '#f86826';
+        // arc(圆心X, 圆心Y, 半径, 开始PI, 结束PI, 顺时针)
+		ctx.arc(300, 300, 50, 0, 1.5*Math.PI,false);
+        ctx.closePath();
+        ctx.fill();
+
+
+         //fill 填充 不使用closePath
+        ctx.beginPath();
+        ctx.lineWidth = 5;
+        ctx.strokeStyle= '#f86826';
+        // arc(圆心X, 圆心Y, 半径, 开始PI, 结束PI, 顺时针)
+		ctx.arc(400, 400, 50, 0, 1.5*Math.PI,false);
       
-       
-
+        ctx.fill();
+      
+      
 
 
 
