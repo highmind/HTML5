@@ -15,10 +15,11 @@
 <canvas id="cvs" width="1024" height="768"></canvas>
 <script type="text/javascript">
 var ball = {
+	   r : 10, //小球半径
 	   x : 500, //位置
-	   y : 200, //位置
+	   y : 400, //位置
 	   vx: -4,  //x轴速度
-	   vy: 0,   //y轴速度
+	   vy: -10,   //y轴速度  ,负数会有上抛效果
 	   g: 2     //加速度
 }
 
@@ -34,12 +35,14 @@ var ball = {
 
         //绘制
 		function render(){
+
            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
            ctx.beginPath();
-           ctx.arc(ball.x, ball.y, 10, 0 , 2*Math.PI);
+           ctx.arc(ball.x, ball.y, ball.r, 0 , 2*Math.PI);
            ctx.fillStyle = 'blue';
-           ctx.fill();
            ctx.closePath();
+           ctx.fill();
+          
 		}
 
 		//更新小球各项参数
@@ -47,6 +50,12 @@ var ball = {
            ball.x+=ball.vx;  //横向X增加
            ball.y+=ball.vy;  //纵向Y增加
            ball.vy+=ball.g;  //纵向速度增加
+
+           if(ball.y >= 768 - ball.r){
+           		ball.y = 768 - ball.r;
+           		ball.vy = -ball.vy * 0.5;  // 0.5为摩擦系数
+           }
+
 		}
 
 		
