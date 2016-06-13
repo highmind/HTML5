@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>canvas-ball 运动</title>
+
+<style type="text/css">
+#cvs{border:1px solid red;}
+</style>
+
+</head>
+<body>
+ 
+<canvas id="cvs" width="1024" height="768"></canvas>
+<script type="text/javascript">
+
+var ballArr = [];
+var timer = null;
+var numArr = [-4, 4];
+var num = 0;
+
+//绘制小球
+function render(){
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+        for(var i = 0; i < ballArr.length; i++){
+           ctx.beginPath();
+           ctx.arc(ballArr[i].x, ballArr[i].y, ballArr[i].r, 0 , 2*Math.PI);
+           ctx.fillStyle = 'blue';
+           ctx.closePath();
+           ctx.fill();
+         }
+
+         
+}
+
+//更新小球状态，并且做碰撞检测
+function updateBalls(){
+  console.log(ballArr.length);
+  for(var i = 0; i < ballArr.length; i++){
+
+    var ball = ballArr[i];
+    ball.x += ball.vx;  //横向X增加
+    ball.y += ball.vy;  //纵向Y增加
+    ball.vy += ball.g;  //纵向速度增加
+            
+    //碰撞检测，触底时，操作
+    if(ball.y >= 768 - ball.r){
+      ball.y = 768 - ball.r;
+      ball.vy = -ball.vy * 0.5;  // 0.5为摩擦系数
+      // console.log(ball.vy);
+    }
+    
+    if(ball.x - ball.r <= 0 ){
+
+    }
+    
+  }
+
+
+          
+}
+
+
+// 获取canvas中点击鼠标的精确位置
+function getMousePos(cvs, e){
+
+  var rect = cvs.getBoundingClientRect();
+
+  return {
+     x: parseInt(e.clientX - rect.left * (cvs.width / rect.width)),
+     y: parseInt(e.clientY - rect.top * (cvs.height / rect.height))
+  }
+
+}
+
+window.onload = function(){
+
+		var cvs = document.getElementById('cvs');
+		ctx = cvs.getContext('2d');
+   
+   //点击的时候创建小球
+	  cvs.addEventListener('click', function(e){
+      num = Math.round(Math.random());
+      var mousePos = getMousePos(cvs, e);
+      var aBall = {
+           r : 10,          //小球半径
+           x : mousePos.x, //位置
+           y : mousePos.y, //位置
+           vx: -4,         //x轴速度
+           vy: -10,        //y轴速度  ,负数会有上抛效果
+           g: 2            //加速度
+      };
+
+      ballArr.push(aBall);
+     console.log(ballArr);
+     clearInterval(timer);
+
+     timer = setInterval(function(){
+            render();
+            updateBalls();
+     }, 50);    
+   
+    
+    });
+
+
+
+}
+</script>
+</body>
+</html>
