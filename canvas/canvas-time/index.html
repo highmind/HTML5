@@ -15,41 +15,96 @@
 <canvas id="cvs"></canvas>
 <script type="text/javascript" src="js/digit.js"></script>
 <script type="text/javascript">
-var CanvasWidth = 1024;
-var CanvasHeight = 768;
+var CanvasWidth = 1024;   //画布宽
+var CanvasHeight = 768;   //画布高
+var RADIUS = 6;           //半径
+var M_TOP = 60;           //边距
+var M_LEFT = 20;          //边距
+var endTime = new Date(2016,5,15,18,47,52);
+var curShowTimeSeconds = 0;
+
+console.log(endTime);
+
 	window.onload = function(){
 		var cvs = document.getElementById('cvs');
 
 		ctx = cvs.getContext('2d');
 		cvs.width = CanvasWidth;
 		cvs.height = CanvasHeight;
-
-		render(ctx);
+        
+        console.log(curShowTimeSeconds)
+        setInterval(function(){
+        	curShowTimeSeconds = getTimeSeconds();
+        	render(ctx);               //进行绘制
+        }, 50)
+		
 	}
 
-function render(ctx){
+//获取当前时间与设定时间的 差值，秒数
+function getTimeSeconds(){
+   var curTime = new Date();
+   var ret = Math.round((endTime.getTime() - curTime.getTime()) / 1000);
 
-	var hours = 12;
-	var miniutes = 34;
-	var seconds = 56;
-
-	renderDigit(0, 0, parseInt(hours/10), ctx);
-
+   if(ret > 0){
+   	return ret;
+   }
+   else{
+   	return 0;
+   }
 }
 
-function renderDigit(x, y, num, ctx){
-	ctx.fillStyle = 'blue';
 
-	for(var i = 0; i < digin[num].length;i++){
+//绘制函数
+
+function render(ctx){
+    
+    ctx.clearRect(0, 0, CanvasWidth, CanvasHeight);
+
+    //时  分 秒
+   
+	var hours = parseInt(curShowTimeSeconds / 3600);  
+	var miniutes = parseInt((curShowTimeSeconds - hours * 3600) / 60);
+	var seconds = curShowTimeSeconds % 60;
+
+	renderDigit(M_LEFT, M_TOP, parseInt(hours/10), ctx);  //绘制 小时的 十位 
+    renderDigit(M_LEFT + 15 * (RADIUS + 1), M_TOP, parseInt(hours % 10), ctx); //绘制小时的 个位 ,15 * (RADIUS + 1),为间距
+    renderDigit(M_LEFT + 15 * 2 * (RADIUS + 1), M_TOP, 10, ctx);               //绘制 ：号
+
+    renderDigit(M_LEFT + 15 * 3 * (RADIUS + 1), M_TOP, parseInt(miniutes/10), ctx);
+    renderDigit(M_LEFT + 15 * 4 * (RADIUS + 1), M_TOP, parseInt(miniutes % 10), ctx);
+    renderDigit(M_LEFT + 15 * 5 * (RADIUS + 1), M_TOP, 10, ctx);
+
+    renderDigit(M_LEFT + 15 * 6 * (RADIUS + 1), M_TOP, parseInt(seconds/10), ctx);
+    renderDigit(M_LEFT + 15 * 7 * (RADIUS + 1), M_TOP, parseInt(seconds % 10), ctx);
+}
+
+/**在指定坐标绘制 数字
+ * x 数字的 x坐标，
+ * y 数字的 Y坐标，
+ * num，要绘制的数字，例如 3
+ * ctx ， canvas上下文 
+**/
+
+function renderDigit(x, y, num, ctx){
+	ctx.fillStyle = '#00baff';
+
+   // 遍历digit数组，根据矩阵 绘制圆形，组成数字
+   
+	for(var i = 0; i < digit[num].length;i++){
+
 		for(var j = 0; j<digit[num][i].length; j++){
+            //矩阵中数字为 1，是画圆，不同的圆心位置，通过i和j进行计算
 			if(digit[num][i][j] == 1){
 				ctx.beginPath();
-				ctx.arc();
+				ctx.arc(x + j * 2 * (RADIUS + 1) + (RADIUS + 1), y + i * 2*(RADIUS+1)+(RADIUS+1), RADIUS, 0 , 2*Math.PI);
 				ctx.closePath();
 				ctx.fill();
 			}
+
 		}
+
 	}
+
 }
 
 
