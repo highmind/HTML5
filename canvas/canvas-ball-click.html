@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>canvas-ball 运动</title>
-
 <style type="text/css">
 #cvs{border:1px solid red;}
 </style>
 
 </head>
 <body>
- 
 <canvas id="cvs" width="1024" height="768"></canvas>
 <script type="text/javascript">
 
 var ballArr = [];
 var timer = null;
-var numArr = [-4, 4];
+var numArr = [-3, 3];
 var num = 0;
-
+var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'black'];
+var aniId = null;
 //绘制小球
 function render(){
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -27,7 +26,7 @@ function render(){
         for(var i = 0; i < ballArr.length; i++){
            ctx.beginPath();
            ctx.arc(ballArr[i].x, ballArr[i].y, ballArr[i].r, 0 , 2*Math.PI);
-           ctx.fillStyle = 'blue';
+           ctx.fillStyle = ballArr[i].color;
            ctx.closePath();
            ctx.fill();
          }
@@ -38,6 +37,7 @@ function render(){
 //更新小球状态，并且做碰撞检测
 function updateBalls(){
   console.log(ballArr.length);
+  var count = 0;
   for(var i = 0; i < ballArr.length; i++){
 
     var ball = ballArr[i];
@@ -52,15 +52,20 @@ function updateBalls(){
       // console.log(ball.vy);
     }
     
-    if(ball.x - ball.r <= 0 ){
-
+    // 将在画布外的小球，从数组中删除,优化性能
+    if(ball.x + ball.r < -20 || ball.x - ball.r > 1030){
+      ballArr.splice(i, 1);  
     }
     
   }
 
+  console.log(ballArr.length);
+
 
           
 }
+
+
 
 
 // 获取canvas中点击鼠标的精确位置
@@ -76,7 +81,6 @@ function getMousePos(cvs, e){
 }
 
 window.onload = function(){
-
 		var cvs = document.getElementById('cvs');
 		ctx = cvs.getContext('2d');
    
@@ -88,19 +92,42 @@ window.onload = function(){
            r : 10,          //小球半径
            x : mousePos.x, //位置
            y : mousePos.y, //位置
-           vx: -4,         //x轴速度
-           vy: -10,        //y轴速度  ,负数会有上抛效果
-           g: 2            //加速度
+           vx: numArr[Math.round(Math.random() * 1)],         //x轴速度
+           vy: -6,        //y轴速度  ,负数会有上抛效果
+           g: 0.98,            //加速度
+           color: colors[parseInt(Math.random() * 5)]   //随机颜色
+
       };
-
-      ballArr.push(aBall);
+    
+     //将绘制的小球数据放到 数组中
+     ballArr.push(aBall);
      console.log(ballArr);
-     clearInterval(timer);
 
-     timer = setInterval(function(){
+     // 定时器模式
+     // clearInterval(timer);
+    
+     //开启定时器, 根据不断擦除画布，绘制不同状态和数量的小球
+     // timer = setInterval(function(){
+     //        render();
+     //        updateBalls();
+     // }, 60); 
+     
+     //requestAnimationFrame模式
+    
+     cancelAnimationFrame(aniId);
+
+     function init(){
             render();
             updateBalls();
-     }, 50);    
+            aniId = requestAnimationFrame(init)
+            if(ballArr.length == 0){
+              console.log('over' + Math.random());
+              cancelAnimationFrame(aniId);
+            } 
+     }
+
+     init();
+       
    
     
     });
