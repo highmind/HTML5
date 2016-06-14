@@ -20,7 +20,11 @@ var CanvasHeight = 768;   //画布高
 var RADIUS = 6;           //半径
 var M_TOP = 60;           //边距
 var M_LEFT = 20;          //边距
-var endTime = new Date(2016,5,15,18,47,52);
+var endTime = new Date();
+endTime.setTime(endTime.getTime() + 3600*1000); //当前时间以后1小时
+// var endTime = new Date(2016,05,14,18,00);
+
+
 var curShowTimeSeconds = 0;
 
 console.log(endTime);
@@ -66,7 +70,7 @@ function render(ctx){
 	var miniutes = parseInt((curShowTimeSeconds - hours * 3600) / 60);
 	var seconds = curShowTimeSeconds % 60;
 
-	renderDigit(M_LEFT, M_TOP, parseInt(hours/10), ctx);  //绘制 小时的 十位 
+	  renderDigit(M_LEFT, M_TOP, parseInt(hours/10), ctx);  //绘制 小时的 十位 
     renderDigit(M_LEFT + 15 * (RADIUS + 1), M_TOP, parseInt(hours % 10), ctx); //绘制小时的 个位 ,15 * (RADIUS + 1),为间距
     renderDigit(M_LEFT + 15 * 2 * (RADIUS + 1), M_TOP, 10, ctx);               //绘制 ：号
 
