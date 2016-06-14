@@ -19,7 +19,26 @@
 
 		ctx = cvs.getContext('2d');
         
-       
+             
+         
+        ctx.beginPath();
+		ctx.moveTo(250, 50);   //开始画线
+		ctx.lineTo(50,250);
+        ctx.lineTo(450,250);
+        ctx.lineTo(250,50);   // 回到初始点
+        ctx.closePath();
+        
+        
+        //填充内部
+        ctx.fillStyle = 'red';
+        ctx.fill();
+
+        //绘制轮廓
+        ctx.lineCap = 'square' //设置线的样式
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = 'orange';
+        ctx.stroke();
+
       
        
 
