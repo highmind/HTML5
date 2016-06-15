@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>canvas-三角函数</title>
+<style type="text/css">
+#cvs{border:1px solid red;}
+</style>
+
+</head>
+<body>
+<canvas id="cvs" width="1024" height="768"></canvas>
+<script type="text/javascript">
+
+
+// 获取canvas中点击鼠标的精确位置
+function getMousePos(cvs, e){
+
+  var rect = cvs.getBoundingClientRect();
+
+  return {
+     x: parseInt(e.clientX - rect.left * (cvs.width / rect.width)),
+     y: parseInt(e.clientY - rect.top * (cvs.height / rect.height))
+  }
+
+}
+
+//获取画布中心点坐标
+var centerX = cvs.width/2;
+var centerY = cvs.height/2;
+
+//绘制矩形 
+//x 横坐标
+//y 纵坐标
+//deg 旋转角度
+//ctx 上下文
+
+
+function draw(x, y, deg, ctx){
+
+    ctx.clearRect(0,0,1024,768);  //清空画布 
+    ctx.save();                   //保存画布状态
+    ctx.translate(x, y);          //移动绘制点
+    ctx.rotate(deg);             //设置旋转角度
+    ctx.translate(-50, -50);     //将旋转中心放到矩形中心 
+    ctx.beginPath();
+    ctx.rect(0, 0, 100, 100)
+    ctx.fillStyle = 'red';
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.restore();              //移除上次画布状态
+}
+
+
+
+window.onload = function(){
+		var cvs = document.getElementById('cvs');
+		ctx = cvs.getContext('2d');
+
+    draw(centerX,centerY, 0, ctx)
+
+    //鼠标移动时，旋转矩形
+    cvs.addEventListener('mousemove', function(e){
+
+      var pos = getMousePos(cvs, e);   //获取鼠标坐标
+      var dy = pos.y - centerY;        
+      var dx = pos.x - centerX;
+
+      console.log(dy);
+      var deg = Math.atan2(dy, dx);  //获取旋转角度
+     
+      draw(centerX, centerY, deg, ctx)
+
+     
+    }, false);
+
+
+
+}
+</script>
+</body>
+</html>
