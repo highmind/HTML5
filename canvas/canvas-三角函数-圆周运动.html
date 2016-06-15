@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>canvas-三角函数-圆周运动</title>
+<style type="text/css">
+#cvs{border:1px solid red;}
+</style>
+
+</head>
+<body>
+<canvas id="cvs" width="1024" height="768"></canvas>
+<script type="text/javascript">
+var ball = {
+  r: 10,
+  x: 0,
+  y:0,
+  color:'blue'
+}
+
+var ball2 ={
+  r: 50,
+  x: cvs.width/2,
+  y: cvs.height/2,
+  color:'orange'
+}
+
+
+
+
+function draw(ball, ctx){
+    console.log(1111);
+
+    ctx.save(); 
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI*2, false);
+    ctx.fillStyle = ball.color;
+    ctx.fill();
+    ctx.closePath();
+    ctx.restore();
+}
+
+
+
+window.onload = function(){
+		var cvs = document.getElementById('cvs');
+		ctx = cvs.getContext('2d');
+    
+    //初始角度
+    var angle = 0;
+    //获取画布中心点坐标
+    
+    var centerX = cvs.width/2;
+    var centerY = cvs.height/2;
+    var radius = 300;  //圆周的半径
+    var speed = 0.01;  //旋转角度的增加值
+
+
+    (function drawBall(){
+        ctx.clearRect(0,0,1024,768);  //清空画布 
+        requestAnimationFrame(drawBall, cvs);
+        // x = r * cos(deg)
+        // y = r * sin(deg)
+        ball.x = centerX + Math.sin(angle) * radius;
+        ball.y = centerY + Math.cos(angle) * radius;
+
+        angle -= speed; //顺时针
+        draw(ball2,ctx);
+        draw(ball,ctx);
+
+    })();
+
+
+
+}
+</script>
+</body>
+</html>

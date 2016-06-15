@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>canvas-三角函数-两点之间距离</title>
+<style type="text/css">
+#canvas{border:1px solid red;}
+</style>
+
+</head>
+<body>
+<p id="log"></p>
+<canvas id="canvas" width="1024" height="768"></canvas>
+<script type="text/javascript">
+
+// 获取canvas中点击鼠标的精确位置
+function getMousePos(cvs, e){
+
+  var rect = cvs.getBoundingClientRect();
+
+  return {
+     x: parseInt(e.clientX - rect.left * (cvs.width / rect.width)),
+     y: parseInt(e.clientY - rect.top * (cvs.height / rect.height))
+  }
+
+}
+
+ window.onload = function(){
+               var canvas = document.getElementById('canvas');
+               var log = document.getElementById('log');
+               
+               var context = canvas.getContext('2d');
+
+               //中心位置创建一个方块
+               var rect = {
+                   x:canvas.width / 2,
+                   y:canvas.height / 2
+               };
+
+               canvas.addEventListener('mousemove', function(e){
+                 var pos = getMousePos(canvas, e);
+                   (function drawFrame(){
+                     window.requestAnimationFrame(drawFrame,canvas);
+                     context.clearRect(0,0,canvas.width,canvas.height);
+                     
+                     var dx = pos.x - rect.x;
+                     var dy = pos.y - rect.y;
+                     var dis = Math.sqrt(dx * dx + dy * dy);
+
+                     //画方块
+                     context.fillStyle = 'red';
+                     context.arc(rect.x - 4, rect.y - 4, 8, 0, 2 * Math.PI);
+                     context.fill();
+                     // context.fillRect(rect.x-2, rect.y-2, 8, 8);
+                     //画线
+                     context.save();
+                     context.strokeStyle = 'red';
+                     context.beginPath();
+                     context.moveTo(rect.x, rect.y);
+                     context.lineTo(pos.x, pos.y);
+                     context.closePath();
+                     context.stroke();
+                     context.restore();
+                     //显示距离
+                     log.style.left = (pos.x + rect.x) / 2 + 'px';
+                     log.style.top = (pos.y + rect.y) / 2 + 'px';
+                     log.innerHTML = dis;
+                 })();
+
+               }, false);
+
+              
+           }
+</script>
+</body>
+</html>
