@@ -16,21 +16,21 @@
   </div>
 
   <div class="page page2 pageDown">
-    <h1 class="animated fadeInDown hide">基本信息</h1>
-    <p class="animated flipInY hide">姓名：某某</p>
+    <h1 class="box animated fadeInDown hide">基本信息</h1>
+    <p class="box animated flipInY hide">姓名：某某</p>
     <p>年龄：xx岁</p>
     <p>联系方式：<a href="tel:186xxxxxx">186xxxxxx</a></p>
   </div>
 
   <div class="page page3 pageDown">
     <h3>3</h3>
-    <h1 class="animated fadeInDown hide">技能</h1>
-    <p class="animated fadeInDown hide">掌握css，javascript，能熟练实现页面效果</p>
+    <h1 class="box animated fadeInDown hide">技能</h1>
+    <p class="box animated fadeInDown hide">掌握css，javascript，能熟练实现页面效果</p>
   </div>
 
   <div class="page page4 pageDown">
     <h4>工作经历</h4>
-    <p class="animated fadeInDown hide">掌握css，javascript，能熟练实现页面效果</p>
+    <p class="box animated fadeInDown hide">掌握css，javascript，能熟练实现页面效果</p>
   </div>
 
   <div class="page page4 pageDown">
@@ -42,51 +42,62 @@
 </div> 
  
 <script type="text/javascript" src="js/zepto.min.js"></script>
-<script type="text/javascript" src="js/touch.js"></script>
+<script type="text/javascript" src="js/touch-0.2.14.min.js"></script>
 
 <script type="text/javascript">
 
    //uc浏览器滑动问题
    document.addEventListener('touchmove', function (e) {e.preventDefault();}, false);
-
-  $(document).ready(function(){
-   
-   var num = $('.page').length; //页数
-   var curIndex = 0;
-   var switchBTN = true;
-   
-   $('.main').on('swipeUp', function(){
-
-       //如果是最后一屏，不执行动画
-       if(curIndex >= num - 1){
-         return false;
-       }
-
-       //当前页面向上滑动
-       $('.page').eq(curIndex).addClass('pageUp');
-
-       //下一页 进入屏幕
-       $('.page').eq(curIndex + 1).removeClass('pageDown');
-       $('.page').eq(curIndex+1).find('.animated').removeClass('hide');
-       curIndex++;
-
-
-   });
-
-   $('.main').on('swipeDown', function(){
-       //如果是最后一屏，不执行动画
-     if(curIndex <= 0){
-       return false;
-     }
-     //当前页面向下滑动
-     $('.page').eq(curIndex).addClass('pageDown');
-
-     //上一页 进入屏幕
-     $('.page').eq(curIndex - 1).removeClass('pageUp');
-      curIndex--;
-   });
+//页面加载完成以后，开始js逻辑
+$(document).ready(function(){
   
+  var curIndex = 0;   //全局索引
+  var pageNum = $('.page').length - 1;  //总页数 - 1
+
+  
+  touch.on('.main', 'swipeup', function(e){
+    // //判断滑动的屏幕，是不是最后一屏  
+     if(curIndex >= pageNum){
+       return;
+     }
+   
+   //    //当前屏幕内 page  添加向上的动画，从  中  到 上 
+        $('.page').eq(curIndex).addClass('pageUp');
+        $('.page').eq(curIndex).find('.box').addClass('hide');
+        $('.page').eq(curIndex + 1).find('.hide').removeClass('hide');
+        // $('.page').eq(curIndex + 1).find('.box1').addClass('animated fadeInLeft');
+        // $('.page').eq(curIndex + 1).find('.box2').addClass('animated fadeInRight');
+        
+  
+
+   //    //todo   屏幕中的  添加类  pageUp,   它的 下一页 删除 pageDown
+       curIndex++;   //  索引增加 1 例如 0 ---- 1
+      
+   //   //下一页 进入屏幕， 从 下 到 中
+      $('.page').eq(curIndex).removeClass('pageDown');
+  });
+
+  touch.on('.main', 'swipedown', function(e){
+
+    if(curIndex <= 0){
+        return;
+    }
+
+    $('.page').eq(curIndex).addClass('pageDown');
+    $('.page').eq(curIndex).find('.box').addClass('hide');
+    curIndex--;
+
+    $('.page').eq(curIndex).removeClass('pageUp');
+    $('.page').eq(curIndex).find('.box').removeClass('hide');
+
+  })
+
+
+
+  
+
 });
+
 </script>
 
 <!-- 音乐 -->
