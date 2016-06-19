@@ -38,3 +38,6 @@ HTML5 video
     paused     ----是否暂停，暂停为true
     ended      ---- 是否播放到最后，是为true
     playbackRate ---  播放速度，2则为2倍,负数时，逆向播放
+
+5. video 事件
+    timeupdate
