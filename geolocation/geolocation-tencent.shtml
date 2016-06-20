@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>腾讯地图&HTML5定位</title>
+    <style type="text/css">  
+		html{height:100%}  
+		body{height:100%;margin:0px;padding:0px}  
+		#container{height:100%} 
+	</style>  
+</head>
+<body>
+	
+	<div id="container"></div>
+
+<!-- 需要额外引入 convertor库 -->
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=ILZBZ-RIR32-HL2UQ-CMRVK-OQ2AT-WWFDS&libraries=convertor"></script>
+
+<script type="text/javascript" >
+
+window.onload = function(){
+
+  getLocation();
+}
+
+
+
+var getLocation = function(){
+
+    if(navigator.geolocation){
+
+        navigator.geolocation.getCurrentPosition(locationSuccess, locationError,{
+            //浏览器获取高精度，默认为false
+            enableHighAccuracy : true,
+            //获取地理位置的超时时间，毫秒
+            timeout: 5000,
+            //最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置
+            maximumAge: 3000
+        });
+
+       }else{
+        alert("您的浏览器不支持 地理位置");
+    }
+
+}
+
+
+//获取位置失败以后的回调函数，可以设置提示信息
+var locationError = function(error){
+    switch(error.code) {
+
+        case error.TIMEOUT:
+            alert("获取超时，请重新获取");
+            break;
+
+        case error.POSITION_UNAVAILABLE:
+            alert('无法解析地址');
+            break;
+
+        case error.PERMISSION_DENIED:
+            alert('请允许获取地理位置');
+            break;
+
+        case error.UNKNOWN_ERROR:
+            alert('发生未知错误');
+            break;
+    }        
+}
+
+var locationSuccess = function(position){
+    // 通过HTML5 获取地理位置以后，调用百度地图
+     var coords = position.coords;
+     tencentMap(coords);
+
+}
+
+
+//腾讯地图调用和设置
+var  tencentMap = function(coords){
+    var lat = coords.latitude; 
+    var lng = coords.longitude;   
+    qq.maps.convertor.translate(new qq.maps.LatLng(lat,lng), 1, function(res){
+      //取出经纬度并且赋值
+         latlng = res[0];
+      
+      var map = new qq.maps.Map(document.getElementById("container"),{
+            center:  latlng,
+            zoom: 13
+        });
+       
+       
+     //调用解析类
+        geocoder = new qq.maps.Geocoder({
+            complete : function(result){
+
+                map.setCenter(result.detail.location);
+
+                 //创建标记
+                var marker = new qq.maps.Marker({
+                    map:map,
+                    position: result.detail.location
+                });
+                //规整地址
+                var address = result.detail.addressComponents;
+                var addressDetail = address.province + address.city + address.town + address.street + address.streetNumber;
+
+                //浮窗
+                var info = new qq.maps.InfoWindow({map: map});
+                    info.open();
+                    info.setContent(addressDetail);
+                    info.setPosition(result.detail.location);
+                    console.log(result.detail); 
+            }
+        });
+
+
+         var latLng = new qq.maps.LatLng(coords.latitude,coords.longitude);
+
+        //调用获取位置方法
+        geocoder.getAddress(latLng);
+
+    });
+   
+
+}
+
+
+
+
+
+</script>
+</body>
+</html>

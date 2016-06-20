@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>腾讯地图</title>
+    <style type="text/css">  
+		html{height:100%}  
+		body{height:100%;margin:0px;padding:0px}  
+		#container{height:100%} 
+	</style>  
+</head>
+<body>
+	
+	<div id="container"></div>
+
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=ILZBZ-RIR32-HL2UQ-CMRVK-OQ2AT-WWFDS"></script>
+
+<script type="text/javascript" >
+
+window.onload = function(){
+	//设置经纬度
+ var coords = {
+ 	longitude : 119.486140,
+ 	latitude  : 39.814430,
+ 	address : '固定的地址'
+
+ }
+
+//开启腾讯地图
+ tencentMap(coords);
+
+}
+
+//百度地图调用和设置
+var  tencentMap = function(coords){
+    var center = new qq.maps.LatLng(coords.latitude,coords.longitude);
+    var map = new qq.maps.Map(document.getElementById("container"), {
+            center:center,      // 地图的中心地理坐标。
+            zoom:30                                                 // 地图的中心地理坐标。
+        });
+
+
+ //调用解析类
+    geocoder = new qq.maps.Geocoder({
+        complete : function(result){
+
+            map.setCenter(result.detail.location);
+
+             //创建标记
+            var marker = new qq.maps.Marker({
+                map:map,
+                position: result.detail.location
+            });
+            //规整地址
+            var address = result.detail.addressComponents;
+            var addressDetail = address.province + address.city + address.town + address.street + address.streetNumber;
+
+            //浮窗
+            var info = new qq.maps.InfoWindow({map: map});
+                info.open();
+                info.setContent(addressDetail);
+                info.setPosition(result.detail.location);
+                console.log(result.detail); 
+        }
+    });
+
+
+     var latLng = new qq.maps.LatLng(coords.latitude,coords.longitude);
+
+    //调用获取位置方法
+    geocoder.getAddress(latLng);
+   
+
+}
+
+
+
+</script>
+</body>
+</html>
