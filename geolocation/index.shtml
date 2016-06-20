@@ -18,6 +18,8 @@
 -->
 <script src="http://api.map.baidu.com/api?v=2.0&ak=EXiaEB1DjdxvdUkoUfhCSVzCiFFxuejG&s=1" type="text/javascript"></script>
 <script type="text/javascript" >
+
+//pc浏览器对 geolocation支持度不好，需要使用手机浏览器，并在服务器环境下测试
 window.onload = function(){
  getLocation();
 }
