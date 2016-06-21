@@ -1,0 +1,9 @@
+Web Storage
+
+1. localStorage --- 本地存储
+      用于长期存储网页数据
+
+
+2. sessionStorage --- 会话存储
+
+    用于临时保存针对一个窗口的数据，关闭浏览器以后 会删除
