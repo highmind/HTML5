@@ -51,11 +51,23 @@
 
         1 getCurrentPosition()   --- 异步的
 
-              navigator.geolocation.getCurrentPosition(onSuccess, onError );
+              基本使用：navigator.geolocation.getCurrentPosition(onSuccess, onError );
 
-              function onSuccess(position){
+               tip:PositionOptions设置
+                   enableHighAccuracy ： true,    精度设置，设备将使用高精度,比如GPS
+                   timeout：50000,                毫秒计
+			       maximumAge: 3000               获取到的位置的缓存时间
 
-              }
+
+
+               1 onSuccess是 获取信息成功以后的回调函数，可以获取position对象
+               2 onError 是 获取失败以后的回调函数，用于处理错误，返回PositionError对象
+
+                        包含： code错误码  1 用户拒绝授权  2 当前位置不可用 3 获取位置超时
+
+                               message错误信息
+
+
 
 
               tip: getCurrentPosition 成功返回后，返回值为 position 对象
@@ -65,9 +77,9 @@
                               2  coords (地理坐标)  tip：对象包含两个属性  latitude(纬度)  longitude(经度)
                                                          其他属性支持程度不高 altitude 海拔 heading 移动方向 speed 速度
 
-        2 watchPositioin()
+        2 watchPositioin()   每次检查位置变化时，进行触发
 
-        3 clearWatch()
+        3 clearWatch()      清除监测  类似于定时器
 
 
 
