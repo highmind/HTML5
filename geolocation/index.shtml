@@ -32,7 +32,7 @@ var getLocation = function(){
             //浏览器获取高精度，默认为false
 			enableHighAccuracy : true,
 			//获取地理位置的超时时间，毫秒
-			timeout: 5000,
+			timeout: 50000,
 			//最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置
 			maximumAge: 3000
 		});
@@ -80,22 +80,25 @@ var  baiduMap = function(coords){
 	map.addControl(new BMap.ScaleControl());    
 	map.addControl(new BMap.OverviewMapControl());    
 	map.addControl(new BMap.MapTypeControl());
+
+	map.enableScrollWheelZoom(true); //开启滚轮缩放
 }
 
 
 //获取位置失败以后的回调函数，可以设置提示信息
 var locationError = function(error){
+	console.log(error)
 	switch(error.code) {
 
-	    case error.TIMEOUT:
+	    case 1:
             alert("获取超时，请重新获取");
             break;
 
-        case error.POSITION_UNAVAILABLE:
+        case 2:
             alert('无法解析地址');
             break;
 
-        case error.PERMISSION_DENIED:
+        case 3:
             alert('请允许获取地理位置');
             break;
 
@@ -106,6 +109,7 @@ var locationError = function(error){
 }
 
 var locationSuccess = function(position){
+	// alert(position);
 	// 通过HTML5 获取地理位置以后，调用百度地图
 	 var coords = position.coords;
 	 baiduMap(coords);

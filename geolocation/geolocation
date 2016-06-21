@@ -1,0 +1,76 @@
+1. HTML5 地理定位
+
+   获取访问页面的用户的当前位置信息
+
+2. 地理定位原理
+
+   位置提供商
+
+   1 IP地址    --------    最粗略的地理定位
+ 
+   2 基站定位  --------     位置提供商 使用三角测量法(误差1000米，基站信号塔越多，定位越准)
+
+   3 卫星定位  --------     GPS(全球卫星定位系统)             ---  美国
+
+                                 北斗卫星导航系统             --- 中国
+
+                                 伽利略卫星导航系统           ---- 欧洲
+
+                                 GLONASS 格洛纳斯卫星导航系统 ---- 俄罗斯
+
+
+     民用级别 定位精度 10米左右
+
+     军用级别 超高精度
+
+ 3. 获取用户地理位置的用处：
+
+    1 定位用户的位置信息，如淘宝，外卖等网站，方便提供本地服务
+
+    2 地图服务， 如百度地图，腾讯地图
+
+
+ 4. HTML5中的地理定位
+
+    tip : 需要将页面传到 服务器环境，使用手机浏览器浏览，并需要打开手机的网络定位
+
+    tip:     ie支持
+             谷歌 火狐   Network location provider at 'https://www.googleapis.com/' : No response received，地理服务被屏蔽
+
+    tip: 判断浏览器是否支持HTML5 地理定位
+
+       if(navigator.geolocation){
+
+	      //执行操作
+
+	   }else{
+		 alert("您的浏览器不支持 地理位置");
+	   }  
+
+     1 navigator.geolocation对象的三个方法
+
+        1 getCurrentPosition()   --- 异步的
+
+              navigator.geolocation.getCurrentPosition(onSuccess, onError );
+
+              function onSuccess(position){
+
+              }
+
+
+              tip: getCurrentPosition 成功返回后，返回值为 position 对象
+
+                position对象：1 timestamp(确定地理位置的时间)
+
+                              2  coords (地理坐标)  tip：对象包含两个属性  latitude(纬度)  longitude(经度)
+                                                         其他属性支持程度不高 altitude 海拔 heading 移动方向 speed 速度
+
+        2 watchPositioin()
+
+        3 clearWatch()
+
+
+
+
+
+

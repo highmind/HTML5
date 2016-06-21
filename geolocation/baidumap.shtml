@@ -50,7 +50,7 @@ var  baiduMap = function(coords){
 
     var opts = {    
 	 width : 150,     // 信息窗口宽度    
-	 // height: ,     // 信息窗口高度    
+	 height: 50,     // 信息窗口高度    
 	 title : ""  // 信息窗口标题   
 	}    
 	
@@ -72,6 +72,8 @@ var  baiduMap = function(coords){
 	map.addControl(new BMap.ScaleControl());    
 	map.addControl(new BMap.OverviewMapControl());    
 	map.addControl(new BMap.MapTypeControl());
+
+	map.enableScrollWheelZoom(true); //开启滚轮缩放
 }
 
 
