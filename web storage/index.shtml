@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>web计数器</title>
+<style type="text/css">
+    body{font-family:"黑体";}
+    .wrap{width:600px;margin:0 auto;}
+    .num{font-size:36px;}
+    #resetBtn{border-radius:6px;width:80px;height:36px;border:none;background-color: orange;font-size:18px;text-align: center;line-height:36px;color:#fff;}
+  
+</style>
+</head>
+<body>
+
+<div class="wrap">
+   <p>
+        上次访问时间
+        <span id="time">0</span> 
+   </p>
+   <p>
+        本次访问已经查看过该页面
+        <span id="sessionNum" class="num">0</span> 次
+   </p>
+   <p>
+       历史上您查看过该页面
+       <span id="localNum" class="num">0</span> 次
+   </p>
+
+   <input type="button" id="resetBtn" value="重置">
+   
+</div>
+
+</body>
+
+<script type="text/javascript">
+//获取时间
+function getDate(){
+    var myDate = new Date();
+
+    return myDate.getFullYear()+'-'+(myDate.getMonth()+1)+'-'+myDate.getDate() + ' ' + myDate.getHours() + ':' + myDate.getMinutes() + ':' + myDate.getSeconds();
+}
+
+// 获取所有localStorage
+function getAllLocal(){
+
+  for(var i = 0; i < localStorage.length; i++){
+    var key = localStorage.key(i);
+    console.log(key);
+
+    var item = localStorage[key];
+    console.log(item);
+  }
+
+}
+
+window.onload = function(){
+    var time = document.getElementById('time');
+    var localNum = document.getElementById('localNum');
+    var sessionNum = document.getElementById('sessionNum');
+    var resetBtn = document.getElementById('resetBtn');
+
+  // 第一次进入页面时，判断是否存在 本地存储数据，将两个计数器设置为0
+   if(localStorage.getItem('time') === null){
+    localStorage.setItem('time', 0);
+  }
+
+
+  if(localStorage.getItem('pageCount1') === null){
+    localStorage.setItem('pageCount1', 0);
+  }
+
+  if(sessionStorage.getItem('pageCount2') === null){
+    sessionStorage.setItem('pageCount2', 0);
+  }
+
+
+  localStorage.time = getDate();
+  // 每次加载页面，将数据取出 然后 加1,然后再存储
+  localStorage.pageCount1 = parseInt(localStorage.getItem("pageCount1")) + 1;
+
+  sessionStorage.pageCount2 = parseInt(sessionStorage.getItem("pageCount2")) + 1;
+
+  time.innerHTML = localStorage.time;
+  localNum.innerHTML = localStorage.pageCount1;
+  sessionNum.innerHTML = sessionStorage.pageCount2;
+
+  getAllLocal()
+
+  // 重置操作
+  resetBtn.addEventListener('click', function(e){
+    localStorage.clear();
+    sessionStorage.clear();
+    alert('重置成功!');
+    window.location.reload();
+  }, false);
+
+
+}
+   
+</script>
+</html>
