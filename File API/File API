@@ -1,0 +1,8 @@
+HTML5 File API--- 文件API
+
+允许web内容在用户授权的情况下，选择本地文件并内容
+
+1. File对象
+
+
+2. FileReader对象

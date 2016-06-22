@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>HTML5 drag</title>
+<style type="text/css">
+  .box{width:200px;height:200px;background-color:red;color:#fff;padding:10px;margin-bottom:10px;}
+  /*设置可拖放元素的样式，防止元素中文字被选中*/
+  [draggable]{
+  	-webkit-user-select:none;
+  	user-select:none;
+  	cursor:move;
+  }
+</style>
+
+</head>
+<body>
+<div class="box" id="dragBox1" draggable=true>
+   <p>大江东去浪淘尽</p>
+</div>
+<div class="box" draggable=true>
+   <p>千古风流人物</p>
+</div>
+
+<script type="text/javascript">
+window.onload=function(){
+	var dragBox1 = document.getElementById('dragBox1');
+
+    // 拖动开始事件
+	dragBox1.addEventListener('dragstart', function(e){
+		console.log('拖放开始');
+	}, false);
+
+
+	dragBox1.addEventListener('dragenter', function(e){
+		console.log('111');
+	}, false);
+
+
+	dragBox1.addEventListener('dragover', function(e){
+		e.preventDefault();
+		console.log('22222');
+	}, false);
+
+	dragBox1.addEventListener('dragend', function(e){
+		e.preventDefault();
+		console.log('拖动结束');
+	}, false);
+
+}
+</script>
+</body>
+</html>
