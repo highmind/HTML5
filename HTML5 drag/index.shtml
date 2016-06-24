@@ -3,52 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>HTML5 drag</title>
+    <title>HTML5 drag-垃圾箱</title>
 <style type="text/css">
-  .box{width:200px;height:200px;background-color:red;color:#fff;padding:10px;margin-bottom:10px;}
+
+  body{background-color: #ccc;}
+  .box{width:200px;height:200px;padding:10px;margin-bottom:10px;}
   /*设置可拖放元素的样式，防止元素中文字被选中*/
   [draggable]{
   	-webkit-user-select:none;
   	user-select:none;
   	cursor:move;
   }
+
+
+  @font-face {font-family: 'iconfont';
+    src: url('fonts/iconfont.eot'); /* IE9*/
+    src: url('fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+   }
+
+ .iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+  #dustBin{text-align: center;}
+  #dustBin i{font-size:160px;color:#000;}
+  .dustBinActive{text-shadow:0 0 10px #fff,0 0 20px #fff,0 0 30px #fff,0 0 40px #fff;}
+
+  #dragBox{background-color: #282828;color:#fff;font-weight: bold;}
 </style>
 
 </head>
 <body>
-<div class="box" id="dragBox1" draggable=true>
-   <p>大江东去浪淘尽</p>
+
+<div class="box" id="dustBin">
+   <i class="iconfont">&#xe66f;</i>
 </div>
-<div class="box" draggable=true>
+<div class="box" id="dragBox" draggable=true>
    <p>千古风流人物</p>
 </div>
 
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
-window.onload=function(){
-	var dragBox1 = document.getElementById('dragBox1');
+$(document).ready(function(){
+	var dustBin = document.getElementById('dustBin');
+    var dragBox = document.getElementById('dragBox');
 
     // 拖动开始事件
-	dragBox1.addEventListener('dragstart', function(e){
+	dragBox.addEventListener('dragstart', function(e){
 		console.log('拖放开始');
 	}, false);
 
-
-	dragBox1.addEventListener('dragenter', function(e){
-		console.log('111');
+  //拖动元素在垃圾箱上面时
+	dustBin.addEventListener('dragenter', function(e){
+		console.log('元素被放到了垃圾箱上');
+		//垃圾箱添加激活样式
+		$('#dustBin').addClass('dustBinActive');
 	}, false);
 
-
-	dragBox1.addEventListener('dragover', function(e){
+  //拖动元素在垃圾箱上移动的时，一定要e.preventDefault();
+	dustBin.addEventListener('dragover', function(e){
 		e.preventDefault();
-		console.log('22222');
+		console.log('元素在垃圾箱上移动');
 	}, false);
 
-	dragBox1.addEventListener('dragend', function(e){
-		e.preventDefault();
+   //拖动元素在垃圾箱上，同时释放鼠标时
+	dustBin.addEventListener('drop', function(e){
+		
+		console.log('元素被放到了垃圾箱里');
+		$('#dustBin').removeClass('dustBinActive');
+		$('#dragBox').hide();
+	}, false);
+
+	 //不论元素在哪里，鼠标释放时
+	dragBox.addEventListener('dragend', function(e){
+		
 		console.log('拖动结束');
+		$('#dustBin').removeClass('dustBinActive');
+
 	}, false);
 
-}
+})
+	
+
 </script>
 </body>
 </html>
