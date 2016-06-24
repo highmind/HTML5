@@ -58,6 +58,7 @@ $(document).ready(function(){
     // 拖动开始事件
 	dragBox.addEventListener('dragstart', function(e){
 		console.log('拖放开始');
+		e.dataTransfer.setData('text/html',this.innerHTML);
 	}, false);
 
   //拖动元素在垃圾箱上面时
@@ -75,10 +76,11 @@ $(document).ready(function(){
 
    //拖动元素在垃圾箱上，同时释放鼠标时
 	dustBin.addEventListener('drop', function(e){
-		
+		e.stopPropagation(); //阻止事件冒泡
 		console.log('元素被放到了垃圾箱里');
 		$('#dustBin').removeClass('dustBinActive');
 		$('#dragBox').hide();
+		console.log(e.dataTransfer.getData('text/html'))
 	}, false);
 
 	 //不论元素在哪里，鼠标释放时

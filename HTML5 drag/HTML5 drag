@@ -37,6 +37,25 @@ HTML5 drag
     	不管拖动操作是否成功，拖动元素在拖动操作结束后将触发 dragend事件
 
 
+3. dataTransfer对象
+
+   e.dataTransfer
+
+   drag系列事件对象的一个属性。
+
+   为本次拖动设置数据
+
+   设置数据：
+
+      e.dataTransfer.setData('text/html', this.innerHTML);
+
+   获取数据：
+
+      e.dataTransfer.getData('text/html');  
+
+
+
+
 
 
 

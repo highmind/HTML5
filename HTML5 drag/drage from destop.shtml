@@ -44,7 +44,13 @@ $(document).ready(function(){
 
   document.addEventListener('drop', function(e){
     e.preventDefault(); //必须调用
+    e.stopPropagation();//阻止事件冒泡
+
     console.log('drop');
+    var files = e.dataTransfer.files;
+    console.log(files[0])
+
+
   }, false);
 
   fileBox.addEventListener('drop', function(e){
