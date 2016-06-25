@@ -1,4 +1,9 @@
-HTML5 video
+
+案例：
+http://ony.ru/
+http://pvp.qq.com/
+
+http://lol.qq.com/act/a20150401fool/index.htm
 
 1. 基本使用
   
@@ -6,7 +11,7 @@ HTML5 video
 
     或者 <video controls>
             <source src="a.mp4">
-            <srouce src="a.ogg">
+            <source src="a.ogg">
             <p>浏览器不支持video视频功能</p>
           </video>  
 
@@ -15,7 +20,7 @@ HTML5 video
 
     src     -----  视频数据的url
     poster  -----  视频缩略图
-    preload  ----   自动缓冲 firefox中为 autobuffer    
+    preload  ----   自动缓冲 ，旧版firefox中为 autobuffer    
     autoplay ---   自动播放
     loop     ----   循环播放
     controls ----  控制条
@@ -25,11 +30,11 @@ HTML5 video
 3. video的方法
    
     play() --- 播放处理
-    pause  ---  暂停处理
+    pause()  ---  暂停处理
     load() ---  导入视频
 
     canPlayType()  ---  判断媒体，
-    返回空字符串不可播放，返回maybbe则可播放
+    返回空字符串不可播放，返回maybe则可播放
 
 4. video 主要属性
 
@@ -40,4 +45,14 @@ HTML5 video
     playbackRate ---  播放速度，2则为2倍,负数时，逆向播放
 
 5. video 事件
+
     timeupdate
+
+
+居中：
+
+    1. 定宽， margin:0 auto;
+
+    2. width:100%; text-align:center;
+
+    3. position:absolute; left:50%;width:300px;margin-left:-150px;
