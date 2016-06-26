@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>canvas</title>
+    <style type="text/css">
+       body{background-color: #ccc;}
+       .container{width:800px;margin:0 auto;}
+       #myCanvas{border:1px solid red;background-color: #fff;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <canvas id="myCanvas" width="800" height="500"></canvas>
+</div>
+
+<script type="text/javascript">
+
+   //绘制小球
+         function drawBall(ctx, ball){
+
+            //清除画布内容clearRect(0,0, 要清理的宽, 要清理的高)
+             ctx.clearRect(0, 0, 800, 500);
+             ctx.beginPath();
+             //arc(圆心横坐标, 圆形纵坐标, 圆的半径，0,2*Math.PI)
+             ctx.arc(ball.x, ball.y, ball.r, 0, 2*Math.PI);
+
+             ctx.fillStyle = ball.color;
+
+             ctx.fill();
+
+             ctx.closePath();
+         }
+
+    window.onload = function(){
+         //获取canvas对象
+         var myCanvas = document.getElementById('myCanvas');
+         
+         //得到canvas的 上下文， 使用的2d
+         var ctx = myCanvas.getContext('2d'); 
+
+         var ball = {
+            'x' : 10,  //圆的横坐标
+            'y' : 200,  //圆的纵坐标
+            'r' : 20,   //圆的半径
+            'color':'red', //圆的颜色
+            'vx' : 40,
+            'f' : 0.92
+         }
+
+        //开启定时器，不断的 擦除画布，然后绘制不同的小球
+        var timer = setInterval(function(){
+            console.log(ball.vx);
+             ball.x = ball.x + ball.vx;
+             ball.vx = ball.vx * ball.f;
+
+            //判断右边缘
+            if(ball.x + ball.r >= 800){
+                ball.vx = -ball.vx;
+            }
+
+            // 判断左边缘
+            if(ball.x - ball.r <= 0){
+                ball.vx = -ball.vx;
+            }
+
+            drawBall(ctx, ball);
+
+        }, 60);
+         
+
+    }
+</script>
+</body>
+</html>
