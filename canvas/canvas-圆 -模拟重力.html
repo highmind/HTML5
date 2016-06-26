@@ -52,29 +52,37 @@
             
          }
 
+ 
+    function update(){
+         clearInterval(timer);
         //开启定时器，不断的 擦除画布，然后绘制不同的小球
         var timer = setInterval(function(){
             console.log(ball.vy);
-            ball.y = ball.y + ball.vy;
 
-            ball.vy = ball.vy + ball.g;
-            if(Math.abs(ball.vy) - 0.1 < 0){
-                    ball.vy = 0;
-                    return;
+            ball.y = Math.ceil(ball.y + ball.vy);
+
+            ball.vy = Math.ceil(ball.vy + ball.g);
+            if(Math.abs(ball.vy) - 2 <= 0){
+                console.log(1111111111)
+                    // ball.vy = 0;
+                    // ball.y = 500 - ball.r;
+                    // clearInterval(timer);
+                 
              }
             if(ball.y + ball.r >= 500){
                 ball.y = 500 - ball.r;
                 ball.vy = -ball.vy * 0.5;
-
-                
+  
 
             }
- 
+             
+           
             drawBall(ctx, ball);
 
         }, 60);
-         
+     }    
 
+    update();
     }
 </script>
 </body>
