@@ -46,15 +46,24 @@
             'y' : 200,  //圆的纵坐标
             'r' : 20,   //圆的半径
             'color':'red', //圆的颜色
-            'vx' : 40,
-            'f' : 0.92
+            'vx' : 90,
+            'f' : 0.8
          }
 
         //开启定时器，不断的 擦除画布，然后绘制不同的小球
         var timer = setInterval(function(){
+ 
             console.log(ball.vx);
-             ball.x = ball.x + ball.vx;
-             ball.vx = ball.vx * ball.f;
+
+             
+            //当速度 大于0.01时，进行计算，否则停止定时器
+            if(Math.abs(ball.vx) > 0.01){
+                ball.vx = ball.vx * ball.f;
+                ball.x = ball.x + ball.vx;
+            }
+            else{
+                clearInterval(timer);
+            }
 
             //判断右边缘
             if(ball.x + ball.r >= 800){

@@ -6,23 +6,23 @@
     <title>canvas</title>
     <style type="text/css">
        body{background-color: #ccc;}
-       .container{width:800px;margin:0 auto;}
+       .container{width:1024px;margin:0 auto;}
        #myCanvas{border:1px solid red;background-color: #fff;}
     </style>
 </head>
 <body>
 
 <div class="container">
-    <canvas id="myCanvas" width="800" height="500"></canvas>
+    <canvas id="myCanvas" width="1024" height="768"></canvas>
 </div>
 
 <script type="text/javascript">
-
+var ani = null;
    //绘制小球
          function drawBall(ctx, ball){
 
             //清除画布内容clearRect(0,0, 要清理的宽, 要清理的高)
-             ctx.clearRect(0, 0, 800, 500);
+             ctx.clearRect(0, 0, 1024, 768);
              ctx.beginPath();
              //arc(圆心横坐标, 圆形纵坐标, 圆的半径，0,2*Math.PI)
              ctx.arc(ball.x, ball.y, ball.r, 0, 2*Math.PI);
@@ -42,47 +42,54 @@
          var ctx = myCanvas.getContext('2d'); 
 
          var ball = {
-            'x' : 300,  //圆的横坐标
-            'y' : 200,  //圆的纵坐标
+            'x' : 500,  //圆的横坐标
+            'y' : 100,  //圆的纵坐标
             'r' : 20,   //圆的半径
             'color':'red', //圆的颜色
-            'vx' : 30,
-            'vy' : 10,
-            'g'  : 2
+            'vx' : 30,   //横向速度
+            'vy' : 4,   //纵向速度
+            'g'  : 0.2,     //重力加速度
+            'b'  : -0.8    //摩擦力
             
          }
 
+    
  
     function update(){
-         clearInterval(timer);
         //开启定时器，不断的 擦除画布，然后绘制不同的小球
-        var timer = setInterval(function(){
-            console.log(ball.vy);
+        ani = requestAnimationFrame(update);
+        console.log(ball.vy);
+        // 速度为0时,停止动画
+        // if(Math.abs(ball.vy) == 0){
+        //    cancelAnimationFrame(ani);
+        //    return;
+        // }
+        // 
+        if(Math.abs(ball.vy) >= 0.01){
 
-            ball.y = Math.ceil(ball.y + ball.vy);
+            ball.vy += ball.g; //速度加上重力加速度 
 
-            ball.vy = Math.ceil(ball.vy + ball.g);
-            if(Math.abs(ball.vy) - 2 <= 0){
-                console.log(1111111111)
-                    // ball.vy = 0;
-                    // ball.y = 500 - ball.r;
-                    // clearInterval(timer);
-                 
-             }
-            if(ball.y + ball.r >= 500){
-                ball.y = 500 - ball.r;
-                ball.vy = -ball.vy * 0.5;
-  
+            ball.y += ball.vy; //小球圆心纵坐标 加上速度
 
-            }
+        }
+        else{
+           console.log('end');
+           ball.y = 768 - ball.r;
+           cancelAnimationFrame(ani);
+        }
+
+
+        //触底检测
+        if(ball.y + ball.r >= 768){
+            ball.y = 768 - ball.r;
+            ball.vy = ball.vy * ball.b;
+        }
              
-           
-            drawBall(ctx, ball);
-
-        }, 60);
+        drawBall(ctx, ball);
      }    
 
     update();
+
     }
 </script>
 </body>
