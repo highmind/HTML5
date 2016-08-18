@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>canvas</title>
+    <style type="text/css">
+       body{background-color: #ccc;}
+       .container{width:1024px;height:768px;background:url(images/test.jpg) no-repeat;background-size:100% 100%;margin:0 auto;}
+       #myCanvas{border:1px solid red;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <canvas id="myCanvas" width="1024" height="768"></canvas>
+     <canvas id="myCanvas2" width="30" height="30"></canvas>
+</div>
+
+<script type="text/javascript">
+
+
+    window.onload = function(){
+        //测试 getImageData,获取透明的画布的像素数据，都是0
+        var cvs2 = document.getElementById('myCanvas2');
+        var ctx2 = cvs2.getContext('2d');
+        console.log(ctx2.getImageData(0,0,30,30));
+
+        var cvs = document.getElementById('myCanvas');
+        var ctx = cvs.getContext('2d');
+        var btn = false;
+        // function clearCanvas(e,ctx){
+        //     ctx.clearRect(e.clientX - cvs.offsetLeft, e.clientY - cvs.offsetTop, 100, 100)
+        // }
+        //绘制遮罩
+        ctx.beginPath();
+        ctx.fillStyle = "#999";
+        ctx.fillRect(0,0,1024,768);
+        ctx.closePath();
+        ctx.globalCompositeOperation="destination-out";//globalCompositeOperation。该属性表示的是图形的组合方式。我们要使用到的是destination-out，它表示只绘制原图形与新图形不重叠的部分；原图形与新图形重叠的部分变透明。换句话说，就是我们在原有图形上进行绘制，覆盖的部分会变成透明的状态。
+
+    
+       cvs.addEventListener('mousedown', function(e){
+           btn = true;
+       }, false);
+
+       cvs.addEventListener('mousemove', function(e){
+           if(btn){
+            ctx.beginPath();
+            ctx.fillStyle = "#f00";
+             // ctx.clearRect(e.clientX - cvs.offsetLeft, e.clientY - cvs.offsetTop, 30, 30)
+            ctx.arc(e.clientX - cvs.offsetLeft, e.clientY - cvs.offsetTop, 50, 0, Math.PI*2);
+            ctx.fill();
+            ctx.closePath();
+           }
+       }, false);
+       
+
+       cvs.addEventListener('mouseup', function(e){
+            btn = false;
+            var num = 0;
+            var datas = ctx.getImageData(0,0,1024,768); //获取画布像素数据
+            console.log(datas.data.length);
+            for(var i = 0; i < datas.data.length; i++){  //遍历整个像素数据
+                if(datas.data[i] == 0){
+                    num++;
+                }
+            }
+
+            if(num >= datas.data.length*0.7){
+                ctx.fillRect(0,0,1024,768);
+            }
+       }, false)
+
+
+    }
+</script>
+</body>
+</html>
