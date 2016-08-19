@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>canvas画板</title>
+    <style>
+        .container{width:1000px;margin:0 auto;margin-top:40px;}
+        .btn{width:40px;height:40px;border:none;}
+        .green{background-color: green;}
+        .blue{background-color: blue;}
+        .orange{background-color: orange;}
+        .black{background-color: black;}
+        .red{background-color: red;}
+        canvas{border:1px solid #ccc;}
+        .pen{border:none;display:inline-block;width:10px;height:10px;border-radius:50%;background-color: #000;}
+        .pen20{width:20px;height:20px;}
+        .pen30{width:30px;height:30px;}
+        .pen40{width:40px;height:40px;}
+        .imgBtn{width:80px;height:40px;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <canvas id="canvas" width="1000" height="600">
+        浏览器不支持canvas   
+    </canvas>
+
+    <div class="section">
+        <button class="btn green" data-color="green"></button>
+        <button class="btn blue" data-color="blue"></button>
+        <button class="btn orange" data-color="orange"></button>
+        <button class="btn black" data-color="black"></button>
+        <button class="btn red" data-color="red"></button>
+
+        <span class="pen pen10" data-size="10"></span>
+        <span class="pen pen20" data-size="20"></span>
+        <span class="pen pen30" data-size="30"></span>
+        <span class="pen pen40" data-size="40"></span>
+
+        <button class="imgBtn">生成</button>
+    </div>
+
+    <img id="imgBox" src="" alt="" />
+
+</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    window.onload = function(){
+        var cvs = document.getElementById('canvas');
+        var ctx = cvs.getContext('2d');
+
+        var btn = false;//开关变量
+
+        var lineColor = 'blue';  //初始化时的 线段颜色和 大小
+        var lineWidth = 4;
+
+        var penX = 0;
+        var penY = 0;
+
+        //
+        $('.btn').click(function(){
+            lineColor = $(this).attr('data-color');
+            console.log(lineColor);
+        });
+
+        $('.pen').click(function(){
+            lineWidth = parseInt($(this).attr('data-size'));
+            console.log(lineWidth);
+        });
+
+        $('.imgBtn').click(function(){
+            console.log(111111)
+            createImage();
+        })
+
+        // 鼠标按下操作
+        cvs.addEventListener('mousedown', down);
+
+        //鼠标移动操作
+        cvs.addEventListener('mousemove', draw);
+
+        // 鼠标松开操作
+        cvs.addEventListener('mouseup', up);
+        
+        //鼠标按下时，开启画笔，设置坐标
+        function down(event){
+            btn = true;
+            penX = event.clientX - cvs.offsetLeft;
+            penY = event.clientY - cvs.offsetTop;
+        }
+
+        //鼠标抬起时，关闭画笔
+        function up(event){
+            btn = false;
+        }
+
+        //画布函数
+        function draw(event){
+            console.log(lineWidth);
+            if(btn){//鼠标移动时候，不断获取并修改坐标值，并绘制线段
+                var newX = event.pageX - cvs.offsetLeft;
+                var newY = event.pageY - cvs.offsetTop;
+
+                ctx.beginPath();
+                ctx.moveTo(penX, penY);
+                ctx.lineTo(newX, newY);
+                ctx.strokeStyle = lineColor;
+                ctx.lineWidth = lineWidth;
+                ctx.lineCap = "round";
+                ctx.stroke();
+                 //并且不断修改开始坐标
+                penX = newX; 
+                penY = newY;
+            }
+        }
+
+
+        function createImage(){
+
+            var img_png_src = canvas.toDataURL("image/png");  //将画板保存为图片格式的函数
+            document.getElementById("imgBox").src = img_png_src;
+       }
+
+
+    }
+</script> 
+</body>
+</html>
