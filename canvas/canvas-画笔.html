@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>canvas画板</title>
     <style>
-        .container{width:1000px;margin:0 auto;margin-top:40px;}
+        .container{width:800px;margin:0 auto;margin-top:40px;}
         .btn{width:40px;height:40px;border:none;}
         .green{background-color: green;}
         .blue{background-color: blue;}
@@ -21,7 +21,7 @@
 </head>
 <body>
 <div class="container">
-    <canvas id="canvas" width="1000" height="600">
+    <canvas id="canvas" width="800" height="400">
         浏览器不支持canvas   
     </canvas>
 
@@ -38,6 +38,7 @@
         <span class="pen pen40" data-size="40"></span>
 
         <button class="imgBtn">生成</button>
+        <button class="clearBtn">清除</button>
     </div>
 
     <img id="imgBox" src="" alt="" />
@@ -71,7 +72,14 @@
         $('.imgBtn').click(function(){
             console.log(111111)
             createImage();
-        })
+        });
+
+        $('.clearBtn').click(function(){
+            console.log(2222)
+            ctx.clearRect(0,0,800,400)
+        });
+
+
 
         // 鼠标按下操作
         cvs.addEventListener('mousedown', down);
