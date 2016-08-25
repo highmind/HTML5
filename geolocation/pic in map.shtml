@@ -127,6 +127,7 @@ EXIF.getData(document.getElementById('test-img'), function(){
 });
 
 
+console.log(longtitudeArr);
 
 }
 
@@ -185,7 +186,6 @@ EXIF.getData(document.getElementById('test-img'), function(){
    
 
 // }
-
 
 
 </script>
