@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>腾讯地图</title>
+    <style type="text/css">  
+		html{height:100%}  
+		body{height:100%;margin:0px;padding:0px}  
+		#container{height:100%} 
+	</style>  
+</head>
+<body>
+<img style="display:none" src="images/IMG_20160825_145630.jpg" alt="" id="test-img">
+<div id="container"></div>
+
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=ILZBZ-RIR32-HL2UQ-CMRVK-OQ2AT-WWFDS&libraries=drawing,geometry,autocomplete,convertor
+"></script>
+<script charset="utf-8" src="js/exif.js"></script>
+
+<script type="text/javascript" >
+
+window.onload = function(){
+
+var longitude;
+var latitude;
+var exifData;
+var latitudeArr = [];
+var longtitudeArr = [];
+
+ 
+
+// 获取图片exif
+EXIF.getData(document.getElementById('test-img'), function(){
+    exifData = EXIF.getAllTags(this);
+    latitudeArr = EXIF.getTag(this, 'GPSLatitude');
+
+    longtitudeArr = EXIF.getTag(this, 'GPSLongitude');
+
+ // GPS 时分秒 转换成 度
+    latitude  = parseFloat(latitudeArr[0]  + ((latitudeArr[1] / 60) + (latitudeArr[2] / 3600)));
+    longitude = parseFloat(longtitudeArr[0]  + ((longtitudeArr[1] / 60) + (longtitudeArr[2] / 3600)));
+    
+ 
+    //设置经纬度
+     var coords = {
+        longitude : longitude,
+        latitude  : latitude,
+        address : ''
+
+     }
+
+
+    var latlng;
+    var map;
+    var center;
+
+    //开启腾讯地图,并且将GPS经纬度转换成 腾讯地图经纬度
+      qq.maps.convertor.translate(new qq.maps.LatLng(coords.latitude, coords.longitude), 1, function(res) {
+
+                 latlng = res[0];
+
+                 center = new qq.maps.LatLng(latlng.lat,latlng.lng);
+
+                 map = new qq.maps.Map(document.getElementById("container"), {
+                    center:center,      // 地图的中心地理坐标。
+                    zoom:30                                                 // 地图的中心地理坐标。
+                 });
+
+                geocoder = new qq.maps.Geocoder({
+                    complete : function(result){
+
+                        map.setCenter(result.detail.location);
+                          var anchor = new qq.maps.Point(0, 39),
+                            size = new qq.maps.Size(40, 40),
+                            origin = new qq.maps.Point(0, 0),
+                            icon = new qq.maps.MarkerImage(
+                                "http://localhost/HTML5/geolocation/images/icon1.png",
+                                size,
+                                origin,
+                                anchor
+                            );
+                       // var anchorb = new qq.maps.Point(3, -30),
+                       //  sizeb = new qq.maps.Size(42, 11),
+                       //  origin = new qq.maps.Point(0, 0),
+                       //  iconb = new qq.maps.MarkerImage(
+                       //      "http://open.map.qq.com/doc/img/nilb.png",
+                       //      sizeb,
+                       //      origin,
+                       //      anchorb
+                       //  );
+                         //创建标记
+                        var marker = new qq.maps.Marker({
+                            map:map,
+                            position: result.detail.location
+                        });
+
+
+
+    marker.setIcon(icon);
+                        //规整地址
+                        var address = result.detail.addressComponents;
+                        var addressDetail = address.province + address.city + address.town + address.street + address.streetNumber;
+
+                        //浮窗
+                        var info = new qq.maps.InfoWindow({map: map});
+                            info.open();
+                            info.setContent(addressDetail);
+                            info.setPosition(result.detail.location);
+                            console.log(result.detail); 
+                    }
+                });
+
+
+     var latLng = new qq.maps.LatLng(latlng.lat,latlng.lng);
+
+    //调用获取位置方法
+     geocoder.getAddress(latLng);
+             console.log(latlng)  
+      });
+
+
+
+// console.log(latitude)
+
+// console.log(longitude)
+});
+
+
+
+}
+
+
+ 
+
+
+//百度地图调用和设置
+// var  tencentMap = function(coords){
+  
+//             qq.maps.convertor.translate(new qq.maps.LatLng(coords.latitude, coords.longitude), 1, function(res) {
+
+//                 latlng = res[0];
+               
+               
+//             });
+// console.log(latlng)
+//  //     center = new qq.maps.LatLng(latlng.lat,latlng.lng);
+
+//  //     map = new qq.maps.Map(document.getElementById("container"), {
+//  //        center:center,      // 地图的中心地理坐标。
+//  //        zoom:30                                                 // 地图的中心地理坐标。
+//  //     });
+
+
+
+//  // //调用解析类
+//  //    geocoder = new qq.maps.Geocoder({
+//  //        complete : function(result){
+
+//  //            map.setCenter(result.detail.location);
+
+//  //             //创建标记
+//  //            var marker = new qq.maps.Marker({
+//  //                map:map,
+//  //                position: result.detail.location
+//  //            });
+//  //            //规整地址
+//  //            var address = result.detail.addressComponents;
+//  //            var addressDetail = address.province + address.city + address.town + address.street + address.streetNumber;
+
+//  //            //浮窗
+//  //            var info = new qq.maps.InfoWindow({map: map});
+//  //                info.open();
+//  //                info.setContent(addressDetail);
+//  //                info.setPosition(result.detail.location);
+//  //                console.log(result.detail); 
+//  //        }
+//  //    });
+
+//  // console.log(latlng)
+//  //     var latLng = new qq.maps.LatLng(latlng.lat,latlng.lng);
+
+//  //    //调用获取位置方法
+//  //    geocoder.getAddress(latLng);
+   
+
+// }
+
+
+
+</script>
+</body>
+</html>
