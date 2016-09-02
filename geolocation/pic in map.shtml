@@ -11,7 +11,7 @@
 	</style>  
 </head>
 <body>
-<img style="display:none" src="images/IMG_20160825_145630.jpg" alt="" id="test-img">
+<img style="display:none" src="images/IMG_20140619_104453.jpg" alt="" id="test-img">
 <div id="container"></div>
 
 <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=ILZBZ-RIR32-HL2UQ-CMRVK-OQ2AT-WWFDS&libraries=drawing,geometry,autocomplete,convertor
@@ -75,7 +75,7 @@ EXIF.getData(document.getElementById('test-img'), function(){
                             size = new qq.maps.Size(40, 40),
                             origin = new qq.maps.Point(0, 0),
                             icon = new qq.maps.MarkerImage(
-                                "http://localhost/HTML5/geolocation/images/icon1.png",
+                                "http://localhost/HTML5/geolocation/images/ico2.png",
                                 size,
                                 origin,
                                 anchor
