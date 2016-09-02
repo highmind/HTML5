@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>腾讯地图</title>
+    <title>云相册-足迹地图-腾讯地图</title>
     <style type="text/css">  
 		html{height:100%}  
 		body{height:100%;margin:0px;padding:0px}  
@@ -39,12 +39,12 @@ var imgList = document.getElementById('imgBox').getElementsByTagName('img');
 
 var map = new qq.maps.Map(document.getElementById("container"), {
          // center:center,      // 地图的中心地理坐标。
-         zoom:4                // 地图的中心地理坐标。
+         zoom:5                // 地图的中心地理坐标。
 });
 
 //调用初始函数，把图片做为覆盖物显示到地图上
 for(var i = 0; i < imgList.length; i++){
-    mapInit(imgList[i], 'http://192.168.0.111/HTML5/geolocation/images/cover/ico1.png', map);
+    mapInit(imgList[i], map);
 }
 
 // mapInit('test-img', 'http://192.168.0.111/HTML5/geolocation/images/cover/ico2.png', map);
@@ -52,7 +52,7 @@ for(var i = 0; i < imgList.length; i++){
 // mapInit('test-img3', 'http://192.168.0.111/HTML5/geolocation/images/cover/ico2.png', map);
 // mapInit('test-img4', 'http://192.168.0.111/HTML5/geolocation/images/cover/ico2.png', map);
 
-function mapInit(obj, coverUrl, map){
+function mapInit(obj, map){
 
     // 获取图片exif,在回调函数中设置 各种坐标
     EXIF.getData(obj, function(){
@@ -82,13 +82,14 @@ function mapInit(obj, coverUrl, map){
 
                      geocoder = new qq.maps.Geocoder({
                         complete : function(result){
+                          console.log();
                             // 设置覆盖物图片
-                              var anchor = new qq.maps.Point(0, 39),
-                                  size   = new qq.maps.Size(40, 40),
+                              var anchor = new qq.maps.Point(0, 59),
+                                  size   = new qq.maps.Size(60, 60),
                                   origin = new qq.maps.Point(0, 0),
-                                 
-                                  icon   = new qq.maps.MarkerImage( // coverUrl为传过来的缩略图地址
-                                    coverUrl,size,origin,anchor
+                                  scalSize   = new qq.maps.Size(60, 60), //缩略图缩放
+                                  icon   = new qq.maps.MarkerImage( 
+                                    obj.src,size,origin,anchor,scalSize
                                );
 
                               //创建标记
@@ -106,8 +107,8 @@ function mapInit(obj, coverUrl, map){
 
                             //浮窗
                             var info = new qq.maps.InfoWindow({map: map});
-                            var infoHTML = '<div style="width:200px;height:200px;margin:0 auto; width:160px;background:url(' + obj.src +') no-repeat;background-size:cover;">'+'</div>' + '<p style="text-align:center;font-size:10px;">'+ addressDetail +'</p>';
-        console.log(infoHTML);
+                            var infoHTML = '<div style="width:400px;height:400px;margin:0 auto; background:url(' + obj.src +') no-repeat center center;background-size:cover;">'+'</div>' + '<p style="text-align:center;font-size:10px;">'+ addressDetail +'</p>';
+                              console.log(infoHTML);
                             info.setContent(infoHTML);
                             info.setPosition(marker.getPosition());
                                 // info.open();
