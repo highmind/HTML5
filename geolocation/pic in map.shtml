@@ -24,8 +24,20 @@
 <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=ILZBZ-RIR32-HL2UQ-CMRVK-OQ2AT-WWFDS&libraries=drawing,geometry,autocomplete,convertor
 "></script>
 <script charset="utf-8" src="js/exif.js"></script>
-
 <script type="text/javascript" >
+// 实现思路：
+//   1. exif.js 获取图片的exif信息，主要是GPS地理位置
+//   2. 调用腾讯地图，生成地图
+//   3. 使用marker，覆盖物和 info 信息窗口，展示图片
+//   4. 将GPS信息 转换成 实际地址，显示到信息窗口中
+
+ // 其他实现思路： 
+ //     1. 一般是程序读取图片exif信息 存储到数据库，或者json等数据中
+ //     var exifData = [
+ //       {'imgsrc' : 'images/a.jpg', 'latitude' : '38.12313', 'longtitude':'21.25458'},
+ //        {'imgsrc' : 'images/a.jpg', 'latitude' : '38.12313', 'longtitude':'21.25458'}
+ //     ]
+ //     2. 前端直接调用，这样比用exif.js 在页面加载时调用，要快很多。
 
 window.onload = function(){
 
