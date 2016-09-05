@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>HTML5 drag-从桌面拖动元素到页面中</title>
-<style type="text/css">
-
-  body{padding:0;margin:0;background-color: #ccc;}
-  .box{width:100%;box-sizing:border-box;height:500px;padding:10px;border:2px solid #000;margin:30px 0;}
-  /*设置可拖放元素的样式，防止元素中文字被选中*/
-  [draggable]{
-  	-webkit-user-select:none;
-  	user-select:none;
-  	cursor:move;
-  }
-
-
-  #fileBox{text-align: center;}
-
-  #dragBox{background-color: #282828;color:#fff;font-weight: bold;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>HTML5 drag-从桌面拖动元素到页面中</title>
+  <style type="text/css">
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: #ccc;
+    }
+    
+    .box {
+      width: 100%;
+      box-sizing: border-box;
+      height: 500px;
+      padding: 10px;
+      border: 2px solid #000;
+      margin: 30px 0;
+    }
+    /*设置可拖放元素的样式，防止元素中文字被选中*/
+    
+    [draggable] {
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: move;
+    }
+    
+    #fileBox {
+      text-align: center;
+    }
+    
+    #dragBox {
+      background-color: #282828;
+      color: #fff;
+      font-weight: bold;
+    }
+  </style>
 
 </head>
+
 <body>
 
-<div class="box" id="fileBox">
+  <div class="box" id="fileBox">
     <p>拖动文件到这里</p>
-</div>
-<img id="imgBox" src="" alt="">
+  </div>
+  <img id="imgBox" src="" alt="">
 
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript">
+  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript">
+  // 格式化代码
 $(document).ready(function(){
   var fileBox = document.getElementById('fileBox');
 
@@ -67,4 +87,5 @@ $(document).ready(function(){
 
 </script>
 </body>
+
 </html>
