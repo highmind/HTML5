@@ -1,0 +1,300 @@
+<!doctype html>
+<html><head>
+<meta charset="UTF-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>HELLO</title>
+<script type="text/javascript">
+
+!function(){
+    var a=navigator.userAgent;
+    -1==a.indexOf("iPhone")&&-1==a.indexOf("iPad")&&-1==a.indexOf("iPod")&&-1==a.indexOf("Android")
+    // &&(self.location="http://wefire.qq.com/act/a20150826kris/pc/")
+}();
+
+ var browser={
+    versions:function(){
+        var u = navigator.userAgent, app = navigator.appVersion;
+        return {
+            webKit: u.indexOf('AppleWebKit') > -1,
+            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+            weixin: u.indexOf('MicroMessenger') > -1,
+            txnews: u.indexOf('qqnews') > -1,
+            sinawb: u.indexOf('weibo') > -1,
+            mqq   : u.indexOf('QQ') > -1
+        };
+    }(),
+
+    language:(navigator.browserLanguage || navigator.language).toLowerCase()
+};
+
+// if (browser.versions.android||browser.versions.weixin||browser.versions.txnews||browser.versions.mqq){
+//     self.location="http://wefire.qq.com/act/a20150826kris/m/index.htm?ADTAG=a20150826kris.tiaozhuan.wx";
+// }
+
+</script>
+<style>
+body,html{margin:0;padding:0;}
+body,html,.wrap{position:relative;height: 100%;}
+
+.ring-bg{height: 0; display: none }/*音乐隐藏*/
+
+.page {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow:hidden;
+}
+
+.page1{background-color: #fff;}
+.page1{z-index:9}
+.page2{z-index:8}
+.page3{z-index:7}
+.page4{z-index:6}
+.page5{z-index:5}
+
+.page1-con{}
+.page2-con{background:url(images/bg_vcall.jpg) no-repeat;z-index:11;background-size: cover;}
+.page3-con{z-index:11;}
+.answer {
+    width: 72px;
+    margin: 0px auto;
+    margin-top:360px;
+    clear: both;
+    font-size: 15px;
+    padding-top: 30px;
+}
+
+.call{ display: block;
+    width: 75px;
+    height: 72px;
+    background-position: -100px -250px;
+    padding-bottom: 10px;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    background-image: url(images/sp.png);
+    background-size: 400px 400px;}
+
+.page-con{display: table;width: 100%; height: 100%; background-color: #fff; position: absolute;/* z-index:12;*/top:0; left:0; /*background: url(images/p1_wb_bg.jpg) no-repeat 50% 50%;*/ background-size: cover;}
+
+.page-con h1{display: table-cell;vertical-align:middle;width:100%;text-align: center;}
+
+
+
+video{font-size: 100%;
+    line-height: 0;
+    vertical-align: baseline;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;}
+
+
+.videobox{
+    position: absolute;
+    width:100%;height:100%;
+    overflow:hidden;
+    top: 50%;  /*定宽高，方便计算 scale值，使用定位和 负边距 实现 垂直水平居中*/
+    left: 50%;
+    z-index: 8;
+    width: 320px;
+    height: 504px;
+    margin: -252px 0 0 -160px;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+
+}
+.video-box{width: 100%; height: 100%; background-color: #000; background-color: #000;}
+.video-boxH{display:block;width: 1px; height: 1px;}
+
+
+.spe{ background-size: 320px 462px; background-repeat: no-repeat;}
+
+</style>
+</head>
+<body>
+
+
+
+
+<div class="wrap">
+
+    <div class="page page1">
+
+        <div class="videobox">
+            <video class="video-box video-boxH"
+            data-index="1" id="videoIndex1" x-webkit-airplay="true"
+             playsinline="true" webkit-playsinline="true" preload="auto"
+            x5-video-player-type="h5"  x5-video-player-fullscreen="true"
+             src="video/wb.mp4" ></video>
+       </div>
+
+        <div class="page-con">
+            <h1>点我试试？</h1>
+        </div>
+
+    </div>
+
+     <div class="page page2">
+         <div class="page-con page2-con">
+              <div class="answer btn-answer">
+                <span class="call"></span>
+              </div>
+
+          </div>
+          <div class="videobox">
+            <video class="video-box video-boxH" data-index="2" id="videoIndex2"
+             x-webkit-airplay="true" playsinline="true"
+             webkit-playsinline="true" preload="auto"
+             x5-video-player-type="h5"  x5-video-player-fullscreen="true"
+             src="video/v3.mp4"></video>
+          </div>
+    </div>
+
+     <div class="page page3">
+           <div class="videobox">
+                <video class="video-box video-boxH"
+                data-index="3" id="videoIndex3"
+                x-webkit-airplay="true" playsinline="true"
+                webkit-playsinline="true" preload="auto"
+                x5-video-player-type="h5"  x5-video-player-fullscreen="true"
+                src="video/v3.mp4"></video>
+           </div>
+
+             <div class="page-con page3-con">
+                    <h1>接下来是谁?</h1>
+             </div>
+      </div>
+
+      <div class="page page4">
+             <div class="page-con page4-con">
+                    <h1>谢谢观看</h1>
+              </div>
+      </div>
+
+</div>
+<audio src="audio/ring.mp3" class="ring-bg" loop="loop"></audio>
+<script src="js/zepto.min.js"></script>
+<!-- <script src="js/iphone-inline-video.min.js"></script> -->
+<script>
+// 处理ios10以下的video样式
+// $('video').each(function () {
+//     enableInlineVideo(this);
+// });
+//query 函数
+var query = function(selector){
+    return document.querySelector(selector);
+};
+
+//文档高度 和 宽度
+var a = document.documentElement.clientHeight, s = document.documentElement.clientWidth;
+function e(e, n) {
+    var t, i = s / a, r = 320 / 504;
+    t = i > r ? a / 504 :s / 320, $(e).css({
+        "-webkit-transform-origin":n,
+        "transform-origin":n,
+        "-webkit-transform":"scale(" + t + ");",
+        transform:"scale(" + t + ");"
+    });
+}
+
+function d(e, n) {
+    var t, i = s / a, r = 320 / 504;
+    t = i < r ? a / 504 :s / 320, $(e).css({
+        "-webkit-transform-origin":n,
+        "transform-origin":n,
+        "-webkit-transform":"scale(" + t + ");",
+        transform:"scale(" + t + ");"
+    });
+}
+
+d(".videobox",'center center'); //视频容器适应屏幕居中
+
+
+$(".video-box").each(function(){
+    $(this)[0].addEventListener("play",function(evt) {
+        videoUtil.onPlay();
+    });
+
+    $(this)[0].addEventListener("ended",function(evt) {
+        var evtTarget = evt.target || evt.srcElement;
+        videoUtil.onEnd(evtTarget.getAttribute('data-index'));
+    });
+
+});
+
+$('.btn-answer').click(function(){
+   query(".ring-bg").pause();;
+   query("#videoIndex2").play();
+   $('#videoIndex2').removeClass('video-boxH');
+
+   setTimeout(function (){
+      $(".page2-con").hide();
+    },200)
+
+});
+
+
+var videoUtil = {
+    onPlay:function() {},
+    onEnd:function(a) {
+
+        switch (a) {
+          case "1":
+            console.log(1);
+            $("#videoIndex1")[0].webkitExitFullScreen();
+            $(".page1").remove();
+            query(".ring-bg").play();
+
+            break;
+
+          case "2":
+            console.log(2);
+            $(".page2").hide();
+
+            //query(".ring-bg").play();
+
+            break;
+
+          case "3":
+            $("#videoIndex3")[0].webkitExitFullScreen();
+            console.log(3);
+            $('.page3').hide();
+
+        }
+    },
+    onError:function() {}
+};
+
+
+
+$(document).one('touchstart', function (e) {
+
+   query("#videoIndex1").play();
+   $('#videoIndex1').removeClass('video-boxH');
+
+   setTimeout(function (){
+      $(".page1-con").hide();
+    },200)
+
+ });
+
+$('.page3-con').click(function(){
+   query("#videoIndex3").play();
+   $('#videoIndex3').removeClass('video-boxH');
+
+   setTimeout(function (){
+      $(".page3-con").hide();
+    },200)
+});
+
+
+
+</script>
+</body>
+</html>
