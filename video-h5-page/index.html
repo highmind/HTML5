@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="wap-font-scale" content="no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>微信中video-测试1-不加x5-video-player-type="h5"</title>
+     <script type="text/javascript">
+    !function(a){function b(){var b=a.document,c=b.documentElement,d=c.getBoundingClientRect().width;document.documentElement.style.fontSize=20*(d/360)+"px"}window.addEventListener("DOMContentLoaded",function(){b()},!1),window.addEventListener("resize",function(){b()}),b()}(window);
+    </script>
+    <style>
+      html,body{padding:0;margin:0;}
+      .box{width:100%;height:300px;background-color: #00ebfa}
+      .IIV::-webkit-media-controls-play-button,
+      .IIV::-webkit-media-controls-start-playback-button {
+      opacity: 0;
+      pointer-events: none;
+      width: 5px;
+  }
+      .wraper{text-align: center;}
+      .video{border:1px solid red;width:80%;height:200px;}
+      .btn{margin:0 auto;width:3rem;height:2rem;border:1px solid red;text-align: center;line-height:2rem;}
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<div class="wraper">
+  <video class="video" id="video" playsinline src="video/superfestival.mp4"></video>
+</div>
+<div class="btn" id="btn">播放</div>
+<div class="box"></div>
+<script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+<script src="js/iphone-inline-video.min.js"></script>
+<script>
+$(document).ready(function(){
+  var video = document.getElementById('video');
+  var btn = $('#btn');
+  enableInlineVideo(video);
+  btn.click(function(){
+    video.play();
+    console.log('playing');
+  })
+})
+
+</script>
+</body>
+</html>
