@@ -129,7 +129,7 @@ video{font-size: 100%;
         <div class="videobox">
             <video class="video-box video-boxH"
             data-index="1" id="videoIndex1" x-webkit-airplay="true"
-             playsinline="true" webkit-playsinline="true" preload="auto"
+             playsinline="true"  preload="auto"
             x5-video-player-type="h5"  x5-video-player-fullscreen="true"
              src="video/wb.mp4" ></video>
        </div>
@@ -150,7 +150,7 @@ video{font-size: 100%;
           <div class="videobox">
             <video class="video-box video-boxH" data-index="2" id="videoIndex2"
              x-webkit-airplay="true" playsinline="true"
-             webkit-playsinline="true" preload="auto"
+              preload="auto"
              x5-video-player-type="h5"  x5-video-player-fullscreen="true"
              src="video/v3.mp4"></video>
           </div>
@@ -161,7 +161,7 @@ video{font-size: 100%;
                 <video class="video-box video-boxH"
                 data-index="3" id="videoIndex3"
                 x-webkit-airplay="true" playsinline="true"
-                webkit-playsinline="true" preload="auto"
+                 preload="auto"
                 x5-video-player-type="h5"  x5-video-player-fullscreen="true"
                 src="video/v3.mp4"></video>
            </div>
@@ -180,12 +180,12 @@ video{font-size: 100%;
 </div>
 <audio src="audio/ring.mp3" class="ring-bg" loop="loop"></audio>
 <script src="js/zepto.min.js"></script>
-<!-- <script src="js/iphone-inline-video.min.js"></script> -->
+<script src="js/iphone-inline-video.min.js"></script>
 <script>
 // 处理ios10以下的video样式
-// $('video').each(function () {
-//     enableInlineVideo(this);
-// });
+$('video').each(function () {
+    enableInlineVideo(this);
+});
 //query 函数
 var query = function(selector){
     return document.querySelector(selector);
