@@ -29,17 +29,9 @@
       	width:100%;
       	height:100%;
       	background-color:#000;
-      	display:-webkit-box;
-      	display:-webkit-flex;
-      	display:flex;
-      	-webkit-box-pack:center;
-      	-webkit-justify-content:center;
-      	justify-content:center;
-      	-webkit-box-align:center;
-      	-webkit-align-items:center;
-      	align-items:center
+
       }
-      .video-show{width:100%;height:100%;border:1px solid blue;}
+      .video-show{width:100%;height:100%;}
       .main{display:none;background-color:#000}
       .wraper{  position: absolute;
         z-index:8;
@@ -48,9 +40,9 @@
         top: 50%;  /*定宽高，方便计算 scale值，使用定位和 负边距 实现 垂直水平居中*/
         left: 50%;
         z-index: 8;
-        width: 320px;
-        height: 504px;
-        margin: -252px 0 0 -160px;
+        width: 375px;
+        height: 667px;
+        margin: -334px 0 0 -188px;
         -webkit-perspective: 1000;
         perspective: 1000;}
       .btn{z-index:10;position:absolute;left:50%;margin-left:-4rem;top:6rem;color:red;width:8rem;height:2rem;border:1px solid red;text-align: center;line-height:2rem;}
@@ -65,23 +57,23 @@
     <video class="video" preload=auto
     width="1" height="1"
      id="video" x5-video-player-type="h5"  x5-video-player-fullscreen="true"
-    src="video/v3.mp4" ></video>
+    src="video/superfestival.mp4" ></video>
   </div>
 </div>
 
-<div class="btn" id="play">看帅哥</div>
-<div class="btn pause" id="pause">太丑了，滚粗</div>
+<div class="btn" id="play">播放</div>
+<div class="btn pause" id="pause">暂停</div>
 <div class="console-win">
 
 </div>
 <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
 <script src="js/iphone-inline-video.min.js"></script>
 <script>
-
-//处理
+// 视频尺寸 750 * 1334，安卓下 会完全全屏所以需要高度要足够高
+//视频居中，需要配合css使用
 function handleResize(el) {
-  var sWidth = 320;  
-  var sHeight = 504;
+  var sWidth = 375;
+  var sHeight = 667;
   var width = document.documentElement.clientWidth;
   var height = document.documentElement.clientHeight;
   var s = width / height;
