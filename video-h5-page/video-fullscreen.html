@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="wap-font-scale" content="no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>微信中video-测试</title>
+     <script type="text/javascript">
+    !function(a){function b(){var b=a.document,c=b.documentElement,d=c.getBoundingClientRect().width;document.documentElement.style.fontSize=20*(d/360)+"px"}window.addEventListener("DOMContentLoaded",function(){b()},!1),window.addEventListener("resize",function(){b()}),b()}(window);
+    </script>
+    <style>
+      html,body{padding:0;margin:0;width:100%;height:100%;}
+      body{
+        position:relative;
+    	  overflow:hidden;
+      }
+      /*去掉ios视频中间播放按钮*/
+      .IIV::-webkit-media-controls-play-button,.IIV::-webkit-media-controls-start-playback-button {
+      	opacity:0;
+      	pointer-events:none;
+      	width:.06667rem
+      }
+      .main {
+      	overflow:hidden;
+      	position:absolute;
+      	top:0;
+      	left:0;
+      	width:100%;
+      	height:100%;
+      	background-color:#000;
+      }
+      .video-show{width:100%;height:100%;}
+      .main{display:none;background-color:#000}
+      .wraper{  position: absolute;
+        z-index:8;
+        width:100%;height:100%;
+        overflow:hidden;
+        top: 50%;  /*定宽高，方便计算 scale值，使用定位和 负边距 实现 垂直水平居中*/
+        left: 50%;
+        z-index: 8;
+        width: 375px;
+        height: 667px;
+        margin: -334px 0 0 -188px;
+        -webkit-perspective: 1000;  /*使用3d场景*/
+        perspective: 1000;}
+      .btn{z-index:10;position:absolute;left:50%;margin-left:-4rem;top:6rem;
+        color:red;width:8rem;height:2rem;border:1px solid red;
+        text-align: center;line-height:2rem;}
+      .pause{top:10rem;}
+      .console-win{text-align: center;position:absolute;width:100%;top:16rem;}
+    </style>
+</head>
+<body>
+<!-- 1 安卓上 同层播放 -->
+<!-- x5-video-player-type="h5"  x5-video-player-fullscreen="true" -->
+<!-- 2 playsinline 配合 iphone-inline-video.min.js ios内联播放 -->
+<div class="main">
+  <div class="wraper">
+    <video class="video" preload=auto
+    width="1" height="1"
+    playsinline
+     id="video" x5-video-player-type="h5"  x5-video-player-fullscreen="true"
+    src="video/superfestival.mp4" ></video>
+  </div>
+</div>
+
+<div class="btn" id="play">播放</div>
+<div class="btn pause" id="pause">暂停</div>
+<script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+<script src="js/iphone-inline-video.min.js"></script>
+<script src="js/vconsole.min.js"></script>  <!-- vconsle.js 用于设备上测试 -->
+<script>
+//获取设备信息
+var browser={
+   versions:function(){
+       var u = navigator.userAgent, app = navigator.appVersion;
+       return {
+           webKit: u.indexOf('AppleWebKit') > -1,
+           ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+           android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+           weixin: u.indexOf('MicroMessenger') > -1,
+           txnews: u.indexOf('qqnews') > -1,
+           sinawb: u.indexOf('weibo') > -1,
+           mqq   : u.indexOf('QQ') > -1
+       };
+   }(),
+
+  //  设备浏览器对video的播放能力
+  //  tbs = {
+  //   "isTBS" : false,  //客户端是否安装有 tbs
+  //  "tbsVersion" : TBS[1], //客户端tbs版本
+  //   "isRightEvent" : false, // 客户端tbs版本 是不是最新版本
+  //   "useH5Play" : false    // 客户端是否 可以使用 x5内核 H5 方式播放
+  // };
+   playability:function(){
+     var ua = window.navigator.userAgent;
+     var TBS = ua.match(/TBS\/([\d.]+)/);
+     var TBS_V0 = '036849'; // TBS >=036849 支持 x5-video-player-type
+     var TBS_V1 = '036900'; // TBS >=036900 正确支持 x5videoenterfullscreen，
+     // 036849 <= TBS < 036900 支持的 x5videoxxxx 事件是反的
+
+     var QQB = ua.match(/MQQBrowser\/([\d.]+)/);
+     var QQB_V0 = '7.1'; // MQQBrowser >=7.1 支持 x5-video-player-type
+     var QQB_V1 = '7.2'; // MQQBrowser >=7.2 正确支持 x5videoenterfullscreen
+     // ，7.1 <= TBS < 7.2 支持的 x5videoxxxx 事件是反的
+     var tbs = {
+       "isTBS" : false,  //客户端是否安装有 tbs
+       "tbsVersion" : TBS[1], //客户端tbs版本
+       "isRightEvent" : false, // 客户端tbs版本 是不是最新版本
+       "useH5Play" : false    // 客户端是否 可以使用 x5内核 H5 方式播放
+     };
+     if (TBS) {
+       tbs.isTBS = true;
+       if(TBS[1] >= TBS_V1){
+         tbs.isRightEvent = true;
+       }
+       if (TBS[1] >= TBS_V0) {
+         tbs.useH5Play = true;
+       }
+     } else if (QQB) {
+       tbs.isTBS = true;
+       if(QQB[1] >= QQB_V1){
+         tbs.isRightEvent = true;
+       }
+       if(QQB[1] >= QQB_V1){
+         tbs.useH5Play = true;
+       }
+     }
+     return tbs;
+   }(),
+
+   language:(navigator.browserLanguage || navigator.language).toLowerCase()
+};
+console.log(browser)
+
+
+
+
+// 视频尺寸 750 * 1334，安卓下 会完全全屏所以需要高度要足够高
+//视频居中，需要配合css使用
+function handleResize(el) {
+  var sWidth = 375;  //视频宽度 / 2
+  var sHeight = 667; // 视频高度 / 2
+  var width = document.documentElement.clientWidth;
+  var height = document.documentElement.clientHeight;
+  var s = width / height;
+  var r = sWidth / sHeight;
+  var t;
+  if(s < r){
+    t = height / sHeight;
+  }
+  else{
+    t = width / sWidth;
+  }
+  $(el).css({
+      "-webkit-transform-origin":'center center',
+      "transform-origin":'center center',
+      "-webkit-transform":"scale(" + t + ");",
+      "transform":"scale(" + t + ");"
+  });
+  console.log('窗口宽高比 s= ' + s + ' 视频宽高比 r= ' + r);
+}
+
+// 初始化缩放
+handleResize('.wraper');
+
+$(document).ready(function(){
+  var video = document.getElementById('video');
+  //兼容ios
+  if(browser.versions.ios){
+      enableInlineVideo(video);
+  }
+
+// 处理 tbs/QQBrowser 的兼容性
+if (browser.playability.isTBS) {
+
+  //版本不同 两个X5 video事件相反，
+  // X5内核 视频播放 进入 全屏模式
+  video.addEventListener("x5videoenterfullscreen", function () {
+    console.log("x5内核播放的video 进入了 全屏模式");
+    //最新安卓版tbs版本号比较高，以下逻辑可以去掉
+    if (browser.playability.isRightEvent) { //用于翻转事件
+
+    } else {
+
+    }
+  })
+  // X5内核 视频播放 退出 全屏模式
+  video.addEventListener("x5videoexitfullscreen", function () {
+    console.log("x5内核播放的video 退出了 全屏模式");
+
+    if (browser.playability.isRightEvent) { //用于翻转事件
+
+    } else {
+
+    }
+  })
+
+}
+
+  $('#play').click(function(){
+    $('.main').show();
+    $('.video').addClass('video-show');
+    video.play();
+  });
+
+  $('#pause').click(function(){
+    // $('.main').hide();
+    // $('.video').removeClass('video-show');
+    video.pause();
+  });
+
+})
+
+//窗口大小变化时，重新计算大小
+window.addEventListener('resize', function () {
+  handleResize('.wraper')
+})
+</script>
+</body>
+</html>
