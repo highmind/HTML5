@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>娱乐画报-动画设计：小白</title>
+<style>
+	html,body{margin:0;padding:0;
+	-webkit-user-select:none;
+	-webkit-touch-callout:none;}
+	html{width: 100%;height:100%;}
+	body{overflow:hidden;height:100%;width:100%;position:relative;background:url(images/bg.jpg);}
+	a{text-decoration:none;}
+	#play{display: block;width:60px;height:60px;position: fixed;
+	left:50%;margin-left:-30px;bottom:20px;background:url(images/play-btn.png) no-repeat;
+	background-size:cover;}
+	#music{display: block;width:60px;height:60px;position:absolute;right:10px;top:10px;background:url(images/music.png) no-repeat;
+	background-size:cover;}
+	.layer{position:absolute;width:100%;height:100%;background-color: #000;}
+	.layer .text{color:#fff;display: block;width:100%;font-size:30px;position:absolute;text-align: center;top:50%;margin-top:-15px;}
+	#layer2{display:none;background:url(images/last_layer.jpg) no-repeat;background-size:cover;}
+	#layer2 .text{color:#de1b1b}
+</style>
+<script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
+<script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
+<script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
+<script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+<script src="js/vconsole.min.js"></script>
+<script src="shizuo1.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+//画布缩放
+stageWidth =  document.documentElement.clientWidth;
+stageHeight = document.documentElement.clientHeight;
+stageScale = stageWidth / (725 / 2);
+if(stageWidth / stageHeight > 0.665)
+{
+    stageScale = stageHeight / ( 1206 / 2);
+}
+else
+{
+    stageScale = stageWidth / ( 725 / 2);
+}
+
+// 初始化
+function init() {
+	var music = document.getElementById('music');
+	var audio = document.getElementById('audio');
+	var layer = document.getElementById('layer');
+
+  //解决ios无法自动播放，此处使用触摸触发播放，同时需要 解除触摸绑定
+	var musicFn = function(){
+		audio.play();
+	}
+
+  var removeFn = function(){
+		document.removeEventListener('touchstart', musicFn, false)
+	}
+
+	document.addEventListener('touchstart', musicFn, false);
+  document.addEventListener('touchend', removeFn, false)
+
+  // 音乐按钮
+	music.onclick = function(){
+		console.log('music click')
+ 			if(audio.paused){
+				audio.play()
+			}else{
+				audio.pause();
+			}
+	}
+
+  canvas = document.getElementById("canvas");
+	images = images||{};
+	canvas.style.width = 725 / 2 * stageScale + 'px';
+	canvas.style.height = 1206 / 2 * stageScale + 'px';
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete(evt) {
+  layer.style.display = 'none';
+	audio.src = 'media/sjsznh.mp3';
+	audio.play();
+
+	exportRoot = new lib.ShiZuo();
+
+	stage = new createjs.Stage(canvas);
+	createjs.Touch.enable(stage,true,false);
+	stage.addChild(exportRoot);
+	stage.update();
+	stage.enableMouseOver();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+
+
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<audio id="audio" src="media/sjsznh.mp3" autoplay></audio>
+	<span id="play" ontouchstart="return false;"></span>
+	<span id="music"></span>
+	<div class="layer" id="layer">
+		<span class="text">加载中...</span>
+	</div>
+	<div class="layer" id="layer2">
+		<span class="text" id="goBack">再看一遍</span>
+	</div>
+	<canvas id="canvas" width="750" height="1206" style="background-color:#FFFFFF"></canvas>
+</body>
+</html>
