@@ -8,12 +8,20 @@
 	html,body{margin:0;padding:0;
 	-webkit-user-select:none;
 	-webkit-touch-callout:none;}
+	@keyframes btn-ani {
+		0%{transform:scale(1.0);}
+		50%{transform:scale(1.2);}
+		100%{transform:scale(1.0); }
+	}
 	html{width: 100%;height:100%;}
 	body{overflow:hidden;height:100%;width:100%;position:relative;background:url(images/bg.jpg);}
 	a{text-decoration:none;}
 	#play{display: block;width:60px;height:60px;position: fixed;
 	left:50%;margin-left:-30px;bottom:20px;background:url(images/play-btn.png) no-repeat;
-	background-size:cover;}
+	background-size:cover;
+
+}
+.btn-ani{animation:btn-ani linear 0.8s infinite;}
 	#music{display: block;width:60px;height:60px;position:absolute;right:10px;top:10px;background:url(images/music.png) no-repeat;
 	background-size:cover;}
 	.layer{position:absolute;width:100%;height:100%;background-color: #000;}
@@ -25,6 +33,7 @@
 <script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
 <script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
 <script src="http://code.createjs.com/preloadjs-0.6.1.min.js"></script>
+<script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
 <script src="js/vconsole.min.js"></script>
 <script src="shizuo1.js"></script>
 
@@ -110,7 +119,7 @@ function handleComplete(evt) {
 
 <body onload="init();" style="background-color:#D4D4D4">
 	<audio id="audio" src="media/sjsznh.mp3" autoplay></audio>
-	<span id="play" ontouchstart="return false;"></span>
+	<span id="play" class="btn-ani" ontouchstart="return false;"></span>
 	<span id="music"></span>
 	<div class="layer" id="layer">
 		<span class="text">加载中...</span>

@@ -159,17 +159,18 @@ p.nominalBounds = new cjs.Rectangle(0,0,750,1206);
 		this.stop();
 
 		var play = document.getElementById('play');
+		
 		play.addEventListener("touchstart", fl_mousedownHandler_2.bind(this), false);
-
 		function fl_mousedownHandler_2() {
 			console.log('按下')
+			$('#play').removeClass('btn-ani');
 			this.play();
 		}
 
 		play.addEventListener("touchend", fl_mouseupHandler_2.bind(this), false);
-
 		function fl_mouseupHandler_2() {
       console.log('抬起')
+			$('#play').addClass('btn-ani');
 			this.stop();
 		}
 
