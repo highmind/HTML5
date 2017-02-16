@@ -25,7 +25,6 @@ lib.properties = {
 // symbols:
 
 
-
 (lib._1 = function() {
 	this.initialize(img._1);
 }).prototype = p = new cjs.Bitmap();
@@ -159,28 +158,21 @@ p.nominalBounds = new cjs.Rectangle(0,0,750,1206);
 		this.stop();
 
 		var play = document.getElementById('play');
-		
+
 		play.addEventListener("touchstart", fl_mousedownHandler_2.bind(this), false);
 		function fl_mousedownHandler_2() {
 			console.log('按下')
-			$('#play').removeClass('btn-ani');
+			$('#play').removeClass('btn-ani'); // 移除按钮动画
 			this.play();
 		}
 
 		play.addEventListener("touchend", fl_mouseupHandler_2.bind(this), false);
 		function fl_mouseupHandler_2() {
       console.log('抬起')
-			$('#play').addClass('btn-ani');
+			$('#play').addClass('btn-ani'); //添加播放动画
 			this.stop();
 		}
 
-		/* Mouse Click 事件
-		单击此指定的元件实例会执行您可在其中添加自己的自定义代码的函数。
-
-		说明:
-		1. 在以下"// 开始您的自定义代码"行后的新行上添加您的自定义代码。
-		单击此元件实例时，此代码将执行。
-		*/
 	}
 
 	this.frame_452 = function() {
