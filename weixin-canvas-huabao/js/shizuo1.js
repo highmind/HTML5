@@ -6,7 +6,7 @@ var p; // shortcut to reference prototypes
 lib.properties = {
 	width: 750,
 	height: 1206,
-	fps: 24,
+	fps: 30,
 	color: "#FFFFFF",
 	manifest: [
 		{src:"images/_1.jpg", id:"_1"},
