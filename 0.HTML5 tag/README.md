@@ -4,6 +4,7 @@
     3. 对地理位置的支持 geolocation
     4. 对本地存储的增强 localStorage sessionStorage
     5. 对音频、视频和图形的增强 audio video canvas
+
 #### HTML5标签
     1. section 对内容进行分块,分段
     2. article 代表一个独立的、完整的相关内容块，例如文章
@@ -15,4 +16,6 @@
 
 #### audio音频
 
-### video视频
+#### video视频
+
+#### canvas画布
