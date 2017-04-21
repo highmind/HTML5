@@ -12,6 +12,6 @@
       * ![image](https://github.com/highmind/Study/raw/master/preview-img/qq-music.png)
     2. 虾米音乐简化版
       * 列表
-      * ![image](https://github.com/highmind/Study/raw/master/preview-img/xiami-list.png)
+       ![image](https://github.com/highmind/Study/raw/master/preview-img/xiami-list.png)
       * 播放
-      * ![image](https://github.com/highmind/Study/raw/master/preview-img/xiami-play.png)
+       ![image](https://github.com/highmind/Study/raw/master/preview-img/xiami-play.png)
