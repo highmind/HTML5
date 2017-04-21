@@ -10,8 +10,9 @@
   4. 案例
     1. QQ音乐播放功能
       * ![image](https://github.com/highmind/Study/raw/master/preview-img/qq-music.png)
+
     2. 虾米音乐简化版
-      * 列表
+      * 列表 <br>
        ![image](https://github.com/highmind/Study/raw/master/preview-img/xiami-list.png)
-      * 播放
+      * 播放 <br>
        ![image](https://github.com/highmind/Study/raw/master/preview-img/xiami-play.png)
