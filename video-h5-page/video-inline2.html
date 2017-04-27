@@ -11,29 +11,52 @@
     </script>
     <style>
       html,body{padding:0;margin:0;}
-      .btn{margin:0 auto;width:3rem;height:2rem;border:1px solid red;text-align: center;line-height:2rem;}
-
-
+      .btn{margin:0 auto;width:3rem;height:2rem;text-align: center;line-height:2rem;cursor:pointer;}
+      .v-box1{width:100%;height:200px;border:1px solid red;}
     </style>
 </head>
 <body>
-<canvas id="v-canvas" width="100%" height="200"></canvas>
-<div class="jsmpeg" data-url="video/car.mpg"></div>
-  <!-- <video class="video" id="video" width="100%" height="200" autoplay x-webkit-airplay="true" playsinline webkit-playsinline="true" x5-video-player-type="h5" src="video/car.mp4"></video> -->
-  <!-- <span class="btn">播放</button> -->
+<h1>微信视频内联播放</h1>
+<h3>1.js方式</h3>
+<canvas id="v-canvas" width="100%" height="200" style="display:block;width:100%;"></canvas>
+<span class="btn play-btn">播放</span>
+<span class="btn pause-btn">暂停</span>
+
+<h3>2.html方式</h3>
+<div class="jsmpeg" data-url="video/car.mpg" data-loop="true"></div>
+
+<h3>3.html方式-自动播放</h3>
+<div class="jsmpeg v-box1" data-url="video/car.mpg" data-loop="true" data-autoplay="true"></div>
+
+<h3>4.js方式自动播放</h3>
+<canvas id="v-canvas2" width="100%" height="200" style="display:block;width:100%;"></canvas>
 <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
 <script src="js/jsmpeg.min.js"></script>
 <script>
   $(document).ready(function(){
-    // var video = document.getElementById('video');
-    // $('.btn').click(function(){
-    //   video.play();
-    // })
-    // canvas = document.getElementById('v-canvas');
-    // var player = new jsmpeg('video/car.mpg', {
-    //    canvas: canvas,
-    //    loop : true
-    // });
+    var vCanvas = document.getElementById('v-canvas');
+    var player = new JSMpeg.Player('video/car.mpg', {
+      canvas:vCanvas,
+      loop:true,
+    });
+
+    $('.play-btn').click(function(){
+      player.play();
+    });
+
+    $('.pause-btn').click(function(){
+      player.pause();
+    });
+
+
+    var vCanvas2 = document.getElementById('v-canvas2');
+    var player2 = new JSMpeg.Player('video/car.mpg', {
+      canvas:vCanvas2,
+      loop:true,
+      autoplay:true
+    });
+
+
   })
 </script>
 </body>
