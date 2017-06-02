@@ -1,4 +1,7 @@
-
+### HTML video
+  1. 线上案例
+    * http://ony.ru/
+    * http://pvp.qq.com/
 案例：
 http://ony.ru/
 http://pvp.qq.com/
@@ -6,29 +9,29 @@ http://pvp.qq.com/
 http://lol.qq.com/act/a20150401fool/index.htm
 
 1. 基本使用
-  
+
     <video src="a.mp4"></video>
 
     或者 <video controls>
             <source src="a.mp4">
             <source src="a.ogg">
             <p>浏览器不支持video视频功能</p>
-          </video>  
+          </video>
 
 
 2.video标签属性
 
     src     -----  视频数据的url
     poster  -----  视频缩略图
-    preload  ----   自动缓冲 ，旧版firefox中为 autobuffer    
+    preload  ----   自动缓冲 ，旧版firefox中为 autobuffer
     autoplay ---   自动播放
     loop     ----   循环播放
     controls ----  控制条
     width    ------   宽
-    height   ------ 高  
+    height   ------ 高
 
 3. video的方法
-   
+
     play() --- 播放处理
     pause()  ---  暂停处理
     load() ---  导入视频
