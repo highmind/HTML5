@@ -8,3 +8,6 @@ background-size: 100% 100%;}
 background-size: 100% 100%;}
 .page-bottom{width:100%;overflow: hidden;}
 .next-page{width:4.825rem;height:4.7rem;padding:1.5rem 0;display: block;margin:0 auto;}
+
+.dmsj-h1{width:100%;height:19.125rem;background:url(../images/dmsj-h1.png) no-repeat;background-size:100% 100%;}
+.dmsj-h2{position:absolute;right:0;top:0;width:4.725rem;height:5.625rem;background:url(../images/dmsj-h2.png) no-repeat;background-size:100% 100%;}
