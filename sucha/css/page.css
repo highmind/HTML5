@@ -1,0 +1,10 @@
+.viwl{background-color: #fff;}
+.main{width:100%;overflow: hidden;}
+.main img{display: block;width:100%;}
+.page-head{background-color: #1f1c1c;width:100%;overflow: hidden;position: relative;}
+.viwl-h1{width:100%;height:21.8rem;background:url(../images/viwl-h1.png) no-repeat;
+background-size: 100% 100%;}
+.viwl-h2{position:absolute;right:0;top:0;width:10.15rem;height:21.8rem;background:url(../images/viwl-h2.png) no-repeat;
+background-size: 100% 100%;}
+.page-bottom{width:100%;overflow: hidden;}
+.next-page{width:4.825rem;height:4.7rem;padding:1.5rem 0;display: block;margin:0 auto;}
