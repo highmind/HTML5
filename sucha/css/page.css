@@ -33,3 +33,19 @@ background:url(../images/ppjj-h1.png) no-repeat;background-size:100% 100%;}
 position:absolute;right:0;top:0;}
 .ppjj-h3{width:18rem;height:17.375rem;background:url(../images/ppjj-h3.png) no-repeat;
 background-size: 100% 100%;position:absolute;left:0;top:4.05rem;}
+
+.cpzs-head{width:100%;height:21.25rem;background:url(../images/cpzs-head.jpg) no-repeat;
+background-size: 100% 100%;}
+.cpzs-h1{position:absolute;right:0;top:0;width:6.925rem;height:13.3rem;background:url(../images/cpzs-h1.png) no-repeat;background-size:100% 100%;}
+
+.tzxz-head{width:100%;height:20.75rem;background:url(../images/tzxz-head.jpg) no-repeat;
+background-size: 100% 100%;}
+.tzxz-h2{position:absolute;right:0;top:0;width:4.8rem;height:6.075rem;background:url(../images/fwzc-h1.png) no-repeat;background-size:100% 100%;}
+.tzxz-h3{position:absolute;left:6.75rem;top:0;width:4.625rem;height:8.7rem;background:url(../images/tzxz-h1.png) no-repeat;background-size:100% 100%;}
+.tzxz-p{font-size:0.6rem;text-indent:0.65rem;background-color: #1f1c1c;color:#fff;}
+.tzxz-table td{text-align: center;background-color: #1f1c1c;border:1px solid #abb311;color:#fff;font-size:0.7rem;}
+.tzxz-table .boldTd{background-color:#abb311;color:#1f1c1c }
+
+.fwzc-head{width:100%;height:21.225rem;background:url(../images/fwzc-head.png) no-repeat;
+background-size: 100% 100%;}
+.fwzc-h2{position:absolute;right:0;top:0;width:4.8rem;height:6.075rem;background:url(../images/fwzc-h1.png) no-repeat;background-size:100% 100%;}
