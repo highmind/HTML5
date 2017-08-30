@@ -43,6 +43,7 @@ background-size: 100% 100%;}
 .tzxz-h2{position:absolute;right:0;top:0;width:4.8rem;height:6.075rem;background:url(../images/fwzc-h1.png) no-repeat;background-size:100% 100%;}
 .tzxz-h3{position:absolute;left:6.75rem;top:0;width:4.625rem;height:8.7rem;background:url(../images/tzxz-h1.png) no-repeat;background-size:100% 100%;}
 .tzxz-p{font-size:0.6rem;text-indent:0.65rem;background-color: #1f1c1c;color:#fff;}
+.tzxz-table{width:100%;background-color: #1f1c1c;}
 .tzxz-table td{text-align: center;background-color: #1f1c1c;border:1px solid #abb311;color:#fff;font-size:0.7rem;}
 .tzxz-table .boldTd{background-color:#abb311;color:#1f1c1c }
 
