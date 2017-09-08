@@ -8,7 +8,9 @@
     <meta name="format-detection" content="telephone=no" />
     <title>酥搽</title>
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
+     <link href="css/swiper-3.4.0.min.css" rel="stylesheet" type="text/css" />
     <link href="css/animate.min.css" rel="stylesheet" type="text/css" />
+
     <link href="css/main.css" rel="stylesheet" type="text/css" />
     <link href="css/bzd.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
@@ -17,19 +19,64 @@
 </head>
 
 <body>
-  <div class="bzd-main">
-    <a href="mulu.html">
-      <img class="animated fadeInLeft" width="100%" src="images/bzd-i1.png" alt="">
-      <img class="animated fadeInUp delay1" width="100%" src="images/bzd-i3.png" alt="">
-    </a>
-  </div>
-  <script>
-    window.onload = function(){
-      setTimeout(function(){
-        location.href="mulu.html"
-      }, 5000)
+   <div class="swiper-container">
+    <div class="swiper-wrapper">
+
+
+            <div class="swiper-slide page page1">
+               <div class="ani i-img1" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.8s"> </div>
+            </div>
+
+            <div class="swiper-slide page page2">
+               <div class="ani i-2-img1" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.8s"></div>
+            </div>
+
+            <div class="swiper-slide page page3">
+               <div class="ani i-3-img1" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.8s"></div>
+            </div>
+
+
+
+    </div>
+</div>
+
+<span class="i-btn"></span>
+<a class="i-enter" href="mulu.html">点击进入</a>
+
+<script type="text/javascript" src="js/zepto.1.0.js"></script>
+<script type="text/javascript" src="js/swiper-3.4.0.jquery.min.js"></script>
+<script type="text/javascript" src="js/swiper.animate1.0.2.min.js"></script>
+<script>
+
+  document.addEventListener("touchmove", function (e) {
+    e.preventDefault()
+}, !1), document.documentElement.style.height = window.innerHeight + "px";
+
+
+
+var mySwiper = new Swiper ('.swiper-container', {
+  direction: 'vertical',
+  onInit: function(swiper){
+    swiperAnimateCache(swiper);
+    swiperAnimate(swiper);
+  },
+  onSlideChangeEnd: function(swiper){
+    if(swiper.activeIndex == 2){
+      $('.i-btn').hide();
+      $('.i-enter').show();
+    }else{
+      $('.i-enter').hide();
+      $('.i-btn').show();
     }
-  </script>
+    swiperAnimate(swiper);
+  }
+  })
+
+$('.i-btn').click(function(){
+  mySwiper.slideNext();
+})
+</script>
+
    <div style="display:none">
     <script src="https://s19.cnzz.com/z_stat.php?id=1263787183&web_id=1263787183" language="JavaScript"></script>
   </div>
