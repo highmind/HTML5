@@ -47,23 +47,37 @@ html, body {
 }
 .img-block{display: block; width: 100%;}
 /*底部导航*/
-.nav{display: none;position: fixed; bottom:3rem; left: 0; width: 100%; overflow: hidden; z-index: 80;}
-.nav {width: 90%; height: 2.52rem;margin: 0 auto; overflow: hidden;margin-left: 1rem;}
+.nav{display: none;position: fixed; bottom:1.5rem; left: 0; width: 100%; overflow: hidden; z-index: 80;}
+.nav {width: 98%; height: 2rem;margin: 0 auto; overflow: hidden;margin-left:0.5rem;}
 .nav {float: left;}
-.nav a{float: left;display: block; border:1px solid red;width: 2.48rem; height: 2.52rem;margin-left: 0.58rem;}
-.nav a:nth-child(1){background: url(../images/nav-img1.png) no-repeat;  background-size: 100% 100%;}
-.nav a:nth-child(2){background: url(../images/nav-img2.png) no-repeat;  background-size: 100% 100%;}
-.nav a:nth-child(3){background: url(../images/nav-img3.png) no-repeat;  background-size: 100% 100%;}
-.nav a:nth-child(4){background: url(../images/nav-img4.png) no-repeat;  background-size: 100% 100%;}
-.nav a:nth-child(5){background: url(../images/nav-img5.png) no-repeat;  background-size: 100% 100%;}
-.nav a.active:nth-child(1){background: url(../images/nav-img1-h.png) no-repeat;  background-size: 100% 100%;}
-.nav a.active:nth-child(2){background: url(../images/nav-img2-h.png) no-repeat;  background-size: 100% 100%;}
-.nav a.active:nth-child(3){background: url(../images/nav-img3-h.png) no-repeat;  background-size: 100% 100%;}
-.nav a.active:nth-child(4){background: url(../images/nav-img4-h.png) no-repeat;  background-size: 100% 100%;}
-.nav a.active:nth-child(5){background: url(../images/nav-img5-h.png) no-repeat;  background-size: 100% 100%;}
+.nav a{float: left;display: block; width: 4.2rem; height: 2.0rem;}
+.nav a:nth-child(1){background: url(../images/jpcp-nav1.png) no-repeat;  background-size: 100% 100%;}
+.nav a:nth-child(2){background: url(../images/jpcp-nav2.png) no-repeat;  background-size: 100% 100%;}
+.nav a:nth-child(3){background: url(../images/jpcp-nav3.png) no-repeat;  background-size: 100% 100%;}
+.nav a:nth-child(4){background: url(../images/jpcp-nav4.png) no-repeat;  background-size: 100% 100%;}
+.nav a.active:nth-child(1){background: url(../images/jpcp-nav1h.png) no-repeat;  background-size: 100% 100%;}
+.nav a.active:nth-child(2){background: url(../images/jpcp-nav2h.png) no-repeat;  background-size: 100% 100%;}
+.nav a.active:nth-child(3){background: url(../images/jpcp-nav3h.png) no-repeat;  background-size: 100% 100%;}
+.nav a.active:nth-child(4){background: url(../images/jpcp-nav4h.png) no-repeat;  background-size: 100% 100%;}
 
 
 .page{width: 100%; overflow: hidden;}
+.page1{width: 100%;background:url(../images/jpcp-home-bg.jpg) no-repeat;
+-webkit-background-size: cover;
+background-size: cover;}
+.jpcp-1-1{position:absolute;left:3.1rem;top:0;
+width: 12.275rem;height:13.1rem;
+background:url(../images/jpcp-home-1.jpg) no-repeat;
+background-size: cover;}
+
+.jpcp-1-2{position:absolute;left:0;top:13.1rem;
+width: 100%;height:16.25rem;
+background:url(../images/jpcp-i-2.png) no-repeat;
+background-size: cover;}
+
+
+
+
 
 .spaceInUp {
   animation-name: spaceInUp;
