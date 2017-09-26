@@ -1,6 +1,14 @@
 html{width:100%;height:100%;position: absolute;}
 .main{width:100%;height:100%;position:absolute;background:url(../images/ml-bg.jpg) no-repeat;
     background-size:cover; }
-.ml-logo{width:100%;display: block;}
-.ml-nav{width:17rem;margin:0 auto;overflow:hidden;}
-.ml-nav a{display: block;float:left;margin-top:0.4rem;width:5.4rem;height:5.05rem;}
+.ml-logo{width:100%;display: block;margin-top:1rem;}
+.ml-nav{position:absolute;top:10.25rem;left:0;width:18.0rem;height:15.95rem;background:url(../images/ml-nav-bg.png) no-repeat;background-size: 100% 100%;
+  margin:0 auto;overflow:hidden;}
+.ml-nav a{display: block;}
+.ml-nav-link1{position:absolute;left:6.05rem;top:0;width:5.05rem;height:5.425rem;}
+.ml-nav-link2{position:absolute;left:11.5rem;top:4.35rem;width:3.575rem;height:3.625rem;}
+.ml-nav-link3{position:absolute;left:13.15rem;top:8.5rem;width:3.575rem;height:3.65rem;}
+.ml-nav-link4{position:absolute;left:8.825rem;top:10.3rem;width:4.15rem;height:4.15rem;}
+.ml-nav-link5{position:absolute;left:4.25rem;top:11.75rem;width:4.15rem;height:4.15rem;}
+.ml-nav-link6{position:absolute;left:1.95rem;top:7.65rem;width:4.15rem;height:4.15rem;}
+.ml-nav-link7{position:absolute;left:1.925rem;top:3.325rem;width:4.15rem;height:4.15rem;}
