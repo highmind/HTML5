@@ -51,4 +51,21 @@ background-size: 100% 100%;}
 background-size: 100% 100%;}
 .fwzc-h2{position:absolute;right:0;top:0;width:4.8rem;height:6.075rem;background:url(../images/fwzc-h1.png) no-repeat;background-size:100% 100%;}
 
-.main .ysmd-dt1{display:block;position:absolute;right:0;top:5.575rem;width:9.45rem;height:17.575rem;}
+.main .ysmd-dt1{display:block;position:absolute;right:0;top:0;width:100%;height:27.575rem;}
+
+.vi-nav{width:16.0rem;height:2.9rem;ovlerflow:hidden;position:fixed;left:1.0rem;bottom:1.0rem;}
+.vi-nav-link{margin-right:1.2rem;margin-left:1.2rem; display: block;float:left;width:2.9rem;height:2.9rem;}
+#vi-nav-link1{background: url(../images/vi-btn1.png) no-repeat;-webkit-background-size: 100% 100%;
+background-size: 100% 100%;}
+#vi-nav-link1.current{background: url(../images/vi-btn-c-1.png) no-repeat;-webkit-background-size: 100% 100%;
+background-size: 100% 100%;}
+
+#vi-nav-link2{background: url(../images/vi-btn2.png) no-repeat;-webkit-background-size: 100% 100%;
+background-size: 100% 100%;}
+#vi-nav-link2.current{background: url(../images/vi-btn-c-2.png) no-repeat;-webkit-background-size: 100% 100%;
+background-size: 100% 100%;}
+
+#vi-nav-link3{background: url(../images/vi-btn3.png) no-repeat;-webkit-background-size: 100% 100%;
+background-size: 100% 100%;}
+#vi-nav-link3.current{background: url(../images/vi-btn-c-3.png) no-repeat;-webkit-background-size: 100% 100%;
+background-size: 100% 100%;}
