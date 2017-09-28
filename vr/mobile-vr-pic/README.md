@@ -43,7 +43,7 @@
     3. $(document).ready中实例化
     ``` javascript
     $(document).ready(function(){
-       var psv = createPhotoViewer('vr-wrap', 
+       var psv = createPhotoViewer('#vr-wrap', 
           'images/ykt-xmbj-vr.jpg', 
           '100%',
           '282px'
