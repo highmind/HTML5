@@ -1,0 +1,199 @@
+﻿html{font-size:20px;}
+html, body {
+       position: relative;
+        height: 100%;
+        overflow:hidden;
+    }
+    body {
+        background-size: cover;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        overflow:hidden;
+    }
+    .swiper-wrapper{
+      position:relative;
+
+    }
+    .swiper-slide {
+
+        width:100%;height:100%;
+        overflow:hidden;
+        text-align: center;
+        font-size: 18px;
+
+    }
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 100%;
+    background: #c7711c;
+    opacity: 1;
+
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #ffffff;
+}
+
+/*底部导航*/
+.nav{display: none;position: fixed;bottom:1.5rem;left:0;width: 100%;overflow: hidden;z-index: 80;}
+.nav{width:100%;margin: 0 auto;overflow: hidden;margin-left: 0.5rem;}
+.nav a{display: block;width:3.15rem;height:2.9rem;text-align: center;float: left;margin-left: 0.24rem; }
+.nav a.active{display: block;width:3.225rem;height:3.2rem;text-align: center;float: left;margin-left: 0.2rem; }
+.nav a:nth-child(1){background: url(../images/nav-vimg1.png) no-repeat;  background-size: 100% 100%;}
+.nav a:nth-child(2){background: url(../images/nav-vimg2.png) no-repeat;  background-size: 100% 100%;}
+.nav a:nth-child(3){background: url(../images/nav-vimg3.png) no-repeat;  background-size: 100% 100%;}
+.nav a:nth-child(4){background: url(../images/nav-vimg4.png) no-repeat;  background-size: 100% 100%;}
+.nav a:nth-child(5){background: url(../images/nav-vimg5.png) no-repeat;  background-size: 100% 100%;}
+.nav a.active:nth-child(1){background: url(../images/nav-avimg1.png) no-repeat;  background-size: 100% 100%;}
+.nav a.active:nth-child(2){background: url(../images/nav-avimg2.png) no-repeat;  background-size: 100% 100%;}
+.nav a.active:nth-child(3){background: url(../images/nav-avimg3.png) no-repeat;  background-size: 100% 100%;}
+.nav a.active:nth-child(4){background: url(../images/nav-avimg4.png) no-repeat;  background-size: 100% 100%;}
+.nav a.active:nth-child(5){background: url(../images/nav-avimg5.png) no-repeat;  background-size: 100% 100%;}
+
+.page{width: 100%; overflow: hidden;}
+.page0{position: relative; background: url(../images/vi-bg0.jpg) no-repeat; background-size: cover;}
+.page1{background: url(../images/vi-bg1.jpg) no-repeat; background-size: cover;}
+.page1-1{background: url(../images/vi-bg2.jpg) no-repeat; background-size: cover;}
+.img-block{display: block;width: 100%;margin:0 auto;}
+
+/* logo释义 */
+.vi-lgsy-1-1{position: absolute;right:6.2rem;top:2.5rem;width:4.6rem;height:6.4rem;background:url(../images/vi-img4.png) no-repeat;background-size:100% 100%;}
+.vi-lgsy-1-2{position: absolute;right:1.2rem;top:9.5rem;width:15.45rem;height:4.4rem;background:url(../images/vi-img5-1.png) no-repeat;background-size:100% 100%;}
+.vi-i-img1{position: absolute;right:1.2rem;top:2.5rem;width:2.525rem;height:5.825rem;background:url(../images/vi-img0.png) no-repeat;background-size:100% 100%; z-index: 2;}
+.vi-i-img2{position: absolute;left:4.7rem;top:7.8rem;width:10.6rem;height:8.775rem;background:url(../images/vi-img1.png) no-repeat;background-size:100% 100%;}
+.vi-i-img3{position: absolute;right:2.2rem;top:17.35rem;width:11.75rem;height:1.95rem;background:url(../images/vi-img2.png) no-repeat;background-size:100% 100%;}
+.vi-img1-5{position: absolute; top: 7.5rem; left: 6.2rem; width: 5.475rem; height: 7.6rem; background: url(../images/vi-img8.png) no-repeat; background-size: 100% 100%;z-index: 10;}
+.vi-img1-6{position: absolute; top: 3.9rem; left: 1.025rem; width: 15.95rem; height: 16.3rem; background: url(../images/vi-img9.jpg) no-repeat; background-size: 100% 100%;}
+.vi-img1-7{position: absolute; top: 2.8rem; left: 1rem; width: 16rem; height: 0.7rem; background: url(../images/vi-img10.png) no-repeat; background-size: 100% 100%;}
+
+/*品牌包装*/
+.vi-b-img1{position: absolute;right:1.2rem;top:2.5rem;width:2.525rem;height:5.825rem;background:url(../images/vi-imgb0.png) no-repeat;background-size:100% 100%; z-index: 2;}
+.vi-b-img2{position: absolute;left:4.7rem;top:7.8rem;width:10.6rem;height:8.775rem;background:url(../images/vi-imgb1.png) no-repeat;background-size:100% 100%;}
+.vi-b-img3{position: absolute;right:2.2rem;top:17.35rem;width:12.175rem;height:2.05rem;background:url(../images/vi-imgb2.png) no-repeat;background-size:100% 100%;}
+.vi-img1-14{position: absolute; top: 0.6rem; left: 2.875rem; width: 12.925rem; height: 2.45rem; background: url(../images/vi-img17.png) no-repeat; background-size: 100% 100%;}
+.vi-img1-15{position: absolute; top: 3.4rem; left: 0rem; width:100%; height: 17.275rem; background: url(../images/vi-img18.png) no-repeat; background-size: 100% 100%;}
+.vi-img1-18{position: absolute; top: 0.6rem; left: 3rem; width: 11.9rem; height: 3.375rem; background: url(../images/vi-lg-img1.png) no-repeat; background-size: 100% 100%;}
+.vi-img1-19{position: absolute; top: 4.4rem; left:0rem; width: 100%; height: 16.55rem; background: url(../images/vi-lg-img2.png) no-repeat; background-size: 100% 100%;}
+.vi-kjzs-1-1{position: absolute;left:2rem;top:0.6rem;width:14.1rem;height:2.6rem;background:url(../images/vi-img21.png) no-repeat;background-size:100% 100%;}
+.vi-kjzs-1-2{position: absolute; top: 3.6rem; left: 0rem; width: 100%; height: 17.325rem; background: url(../images/vi-img22.png) no-repeat; background-size: 100% 100%;}
+
+/*门店展示*/
+.vi-mz-img1{position: absolute;right:1.2rem;top:2.8rem;width:2.525rem;height:4.05rem;background:url(../images/vi-imgmz0.png) no-repeat;background-size:100% 100%; z-index: 2;}
+.vi-mz-img2{position: absolute;left:4.7rem;top:7.8rem;width:10.6rem;height:8.775rem;background:url(../images/vi-imgmz1.png) no-repeat;background-size:100% 100%;}
+.vi-mz-img3{position: absolute;right:1.3rem;top:18rem;width:15.375rem;height:1.775rem;background:url(../images/vi-imgmz2.png) no-repeat;background-size:100% 100%;}
+.vi-img2-3{position: absolute;top: 0.5rem;left:6.4rem;width: 8.175rem;height:0.925rem;background: url(../images/vi-kj-img1.png) no-repeat;background-size: 100% 100%;}
+.vi-img2-4{position: absolute;top: 3rem;left: 0rem;width: 100%;height: 17.6rem;background: url(../images/vi-kj-img2.png) no-repeat;background-size: 100% 100%;}
+
+/*物流系统*/
+.vi-wl-img1{position: absolute;right:1.2rem;top:2.8rem;width:2.525rem;height:5.35rem;background:url(../images/vi-imgwl0.png) no-repeat;background-size:100% 100%; z-index: 2;}
+.vi-wl-img2{position: absolute;left:4.7rem;top:7.8rem;width:10.6rem;height:8.775rem;background:url(../images/vi-imgwl1.png) no-repeat;background-size:100% 100%;}
+.vi-wl-img3{position: absolute;right:3rem;top:18rem;width:11.95rem;height:2.1rem;background:url(../images/vi-imgwl2.png) no-repeat;background-size:100% 100%;}
+.vi-img2-6{position: absolute;top: 0.4rem;left:6.5rem;width: 6.4rem;height:1rem;background: url(../images/vi-kj-img4.png) no-repeat;background-size: 100% 100%;}
+.vi-img2-7{position: absolute;top: 2.4rem;left: 0rem;width: 100%;height: 18rem;background: url(../images/vi-kj-img5.png) no-repeat;background-size: 100% 100%;}
+
+/*会员卡券*/
+.vi-hy-img1{position: absolute;right:1.2rem;top:2.8rem;width:2.525rem;height:5.35rem;background:url(../images/vi-imghy0.png) no-repeat;background-size:100% 100%; z-index: 2;}
+.vi-hy-img2{position: absolute;left:4.7rem;top:7.8rem;width:10.6rem;height:8.775rem;background:url(../images/vi-imghy1.png) no-repeat;background-size:100% 100%;}
+.vi-hy-img3{position: absolute;right:3rem;top:18rem;width:11.95rem;height:2.1rem;background:url(../images/vi-imghy2.png) no-repeat;background-size:100% 100%;}
+.vi-imgk2-6{position: absolute;top: 0.6rem;left:4rem;width: 9.9rem;height:2.525rem;background: url(../images/vi-kkj-img4.png) no-repeat;background-size: 100% 100%;}
+.vi-imgk2-7{position: absolute;top: 3.4rem;left: 0rem;width: 100%;height: 17.4rem;background: url(../images/vi-kkj-img5.png) no-repeat;background-size: 100% 100%;}
+
+.nav-vindex1{position: absolute;top:15.5rem;left:1rem;width:2.725rem;height:7.2rem;
+background: url(../images/vi-indx1.png) no-repeat;  background-size: 100% 100%;}
+.nav-vindex2{position: absolute;top:15.5rem;left:4.5rem;width:2.725rem;height:7.2rem;
+background: url(../images/vi-indx2.png) no-repeat;  background-size: 100% 100%;}
+.nav-vindex3{position: absolute;top:15.5rem;left:7.8rem;width:2.725rem;height:7.2rem;
+background: url(../images/vi-indx3.png) no-repeat;  background-size: 100% 100%;}
+.nav-vindex4{position: absolute;top:15.5rem;left:10.8rem;width:3.75rem;height:7.5rem;
+background: url(../images/vi-indx4.png) no-repeat;  background-size: 100% 100%;}
+.nav-vindex5{position: absolute;top:15.5rem;right:0.6rem;width:2.725rem;height:7.2rem;
+background: url(../images/vi-indx5.png) no-repeat;  background-size: 100% 100%;}
+
+
+.catalogue{animation:tipAnimateb 2s infinite .2s ease;-webkit-animation:tipAnimateb 2s infinite .2s ease;}
+@-webkit-keyframes tipAnimateb{
+    0%{opacity:1;}
+    50%{opacity: 0.4;}
+    75%{opacity:1;  }
+    100%{opacity:1;  }
+}
+@keyframes tipAnimateb{
+   0%{opacity:1;}
+    50%{opacity: 0.4;}
+    75%{opacity:1;  }
+    100%{opacity:1;  }
+}
+/* music */
+@-webkit-keyframes rotating {
+            from{
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            to{
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotating {
+            from{
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            to{
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        #music{position: absolute; top: 0.7rem; right: 0.7rem; width: 1.7rem; height: 1.7rem; z-index: 999;}
+        #music #btn{width: 1.7rem;height: 1.7rem;}
+        #music .on{
+                    position: relative;
+                    background: url('../images/music_off1.png') no-repeat 0 0;
+                    background-size: 100% 100%;
+                    -webkit-animation: rotating 1.2s linear infinite;
+                    animation: rotating 1.2s linear infinite;
+                    -moz-animation:rotating 1.2s linear infinite;
+                    -o-animation:rotating 1.2s linear infinite;
+                    }
+        #music .on .gif{position: absolute;width:80px;height: 80px;   top: 10px;left: 10px; background: url('../images/music_gif.gif');
+                    -webkit-animation: rotating 1.5s linear 0.2s infinite;
+                    animation: rotating 1.5s linear 0.9s infinite;
+                    -moz-animation:rotating 1.5s linear 0.9s infinite;
+                    -o-animation:rotating 1.5s linear 0.9s infinite;
+    }
+        #music .off{background: url('../images/music_off2.png') no-repeat 0 0; background-size: 100% 100%;}
+        #pic{
+            width: 2rem;
+            height: 2rem;
+            position:absolute;
+            top: 0;
+            right: 0;
+            z-index: 999;
+        }
+         .image{
+            display: none;
+        }

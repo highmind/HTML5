@@ -1,0 +1,135 @@
+/*Vr*/
+h4{font-size: 0.85rem;text-align: center;font-weight: bold;margin-top: 1rem;margin-bottom: 1rem;}
+.VR-bg{overflow: hidden;background: url(../images/VR-bg.jpg) repeat-y 0 0;padding-left: 0.8rem;}
+#your-pano{position: absolute;top:0rem;left:0rem;z-index: -1;}
+/*#your-pano canvas{position: absolute;top:2rem;left:2rem;z-index: 10;}*/
+.pp3{position: relative;width: 16.35rem;height: 12.3rem;z-index: 55;}
+.wenzi{display: none;position: absolute;z-index: 80;left:5.5rem;top:10rem;color: #fff;font-size: 0.65rem;text-align: center;}
+.xuanzhuan{display: none;position: absolute;left:2.5rem;top:7rem;width:3rem;height:3rem;background: url(../images/hand1.png) no-repeat center center; background-size: 100% 100%;}
+.bg-2,.bg-3,.bg-4,.bg-5{position: relative;width: 100%;height: 282px;}
+#yourpano2 .loadid,#yourpano3 .loadid,#yourpano4 .loadid,#yourpano5 .loadid{
+	position: absolute;
+	top:50%;
+	left:50%;
+	margin-top: -1.25rem;
+	margin-left: -1.25rem;
+	width: 2.5rem;
+    height: 2.5rem;
+    /*-webkit-animation: circle infinite .75s linear;
+    animation: circle infinite .75s linear;
+    border: 2px solid #7dc2f9;
+    border-top-color: transparent;
+    border-radius: 100%;
+*/}
+
+
+
+.tipAnimateb{;animation:tipAnimateb 3s infinite .2s ease;-webkit-animation:tipAnimateb 3s infinite .2s ease;}
+@-webkit-keyframes tipAnimateb{
+    0%{opacity:1;}
+    50%{opacity: 0.4;}
+    75%{opacity:1;  }
+    100%{opacity:1;  }
+}
+
+@keyframes tipAnimateb{
+   0%{opacity:1;}
+    50%{opacity: 0.4;}
+    75%{opacity:1;  }
+    100%{opacity:1;  }
+}
+.holeOut {
+  animation: holeOut 4s infinite .2s ease;-webkit-animation: holeOut 4s infinite .2s ease;;
+}
+@keyframes holeOut {
+  0% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform:translate3d(0px,0px,0px) rotateY(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform:translate3d(180px,0px,20px) rotateY(720deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform:translate3d(0px,0px,0px) rotateY(0deg);
+  }
+}
+@-webkit-keyframes holeOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform:translate3d(0px,0px,0px) rotateY(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform:translate3d(180px,0px,20px) rotateY(720deg);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform:translate3d(0px,0px,0px) rotateY(0deg);
+  }
+}
+
+
+.holeOut1 {
+  animation: holeOut1 4s infinite 0s ease;-webkit-animation: holeOut1 4s infinite 0s ease;;
+}
+@keyframes holeOut1 {
+  0% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform:translate3d(0px,0px,0px);
+  }
+
+  50% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform:translate3d(180px,0px,20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform:translate3d(0px,0px,0px);
+  }
+}
+@-webkit-keyframes holeOut1 {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform:translate3d(0px,0px,0px);
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform:translate3d(180px,0px,20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform:translate3d(0px,0px,0px);
+  }
+}
+
+@keyframes circle {
+	 0%{  transform: rotate(0deg);}
+	 100%{  transform: rotate(360deg);}
+}
+@-webkit-keyframes circle {
+	 0%{  -webkit-transform: rotate(0deg);}
+	 100%{  -webkit-transform: rotate(360deg);}
+}
+
+

@@ -1,0 +1,50 @@
+/*二级页模版样式*/
+html{font-size:20px;}
+body{background-color: #fff;}
+/* 二级页模版Banner */
+.sub-main{width: 100%;}
+.delay-1{-webkit-animation-delay: 0.3s;animation-delay:0.3s;}
+.delay-2{-webkit-animation-delay: 0.6s;animation-delay:0.6s;}
+.delay-3{-webkit-animation-delay: 0.9s;animation-delay:0.9s;}
+.sub-head{position: relative; width: 100%;height:24.48rem;background: url(../images/cksk-bg.jpg) no-repeat center center; background-size: 100% 100%; overflow: hidden;}
+.sub-head1{position: absolute; top:3.3rem;left:4rem; width:10.65rem;height:8.78rem; background: url(../images/cksk-head1.png) no-repeat center center; background-size: 100% 100%;}
+.sub-head2{position: absolute; top:12.7rem;left: 0.5rem; width:5.38rem;height:11.15rem; background: url(../images/cksk-head2.png) no-repeat center center; background-size: 100% 100%;z-index: 20;}
+.sub-head3{position: absolute; top:14.5rem;left: 2.1rem; width:10.25rem;height:8.55rem; background: url(../images/cksk-head4.png) no-repeat center center; background-size: 100% 100%;z-index: 10;}
+.sub-head4{position: absolute; top:16.3rem;left:8.1rem; width: 9.53rem;height:7.58rem; background: url(../images/cksk-head3.png) no-repeat center center; background-size: 100% 100%;z-index: 10;}
+
+.close-page{position: fixed; top: 0.5rem; right: 0.5rem; width: 1.32rem; height: 1.32rem; background: url(../images/close-page.png) no-repeat center 0; background-size: 100% 100%; z-index: 30; -webkit-animation: tipAnimateb 2s infinite .2s ease;}
+
+/* 下一页 & 回到首页 */
+.next-bg{position: relative;width: 100%; height:9.5rem;background: url(../images/next-bg.jpg) no-repeat center center; background-size: 100% 100%; overflow: hidden;}
+.next-bg a{position: absolute; bottom: 5.8rem; left:39%;width:4.6rem;height:1.65rem;display: block;overflow: hidden;}
+.next-bg .next-index{width: 6.1rem}
+.next-img{display: block;width:4.6rem;height:1.65rem;animation:tipAnimateb 2s infinite .2s ease;-webkit-animation:tipAnimateb 2s infinite .2s ease;}
+
+
+@-webkit-keyframes scale{
+    0%{-webkit-transform:scale(1,1);opacity:1;}
+    50%{-webkit-transform:scale(0.8,0.8);opacity:0.5;}
+    100%{-webkit-transform:scale(1,1);opacity:1;}
+}
+
+@keyframes scale{
+    0%{transform:scale(1,1);opacity:1;}
+    50%{transform:scale(0.8,0.8);opacity:0.5;}
+    100%{transform:scale(1,1);opacity:1;}
+}
+
+@-webkit-keyframes tipAnimateb{
+    0%{opacity:1;}
+    50%{opacity: 0.4;}
+    75%{opacity:1;  }
+    100%{opacity:1;  }
+}
+
+@keyframes tipAnimateb{
+   0%{opacity:1;}
+    50%{opacity: 0.4;}
+    75%{opacity:1;  }
+    100%{opacity:1;  }
+}
+
+

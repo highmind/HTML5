@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta itemprop="name" content="净梵茶">
+    <meta itemprop="description" content="禅茶五味，不同'梵'响">
+    <meta itemprop="image" content="http://m.jingfancha.com/images/wx300.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="wap-font-scale" content="no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>净梵茶</title>
+    <link href="libs/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="libs/css/animate.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="css/global.css" rel="stylesheet" type="text/css" />
+    <link href="css/page.css" rel="stylesheet" type="text/css" />
+    <link href="css/page-zn.css" rel="stylesheet" type="text/css" />
+    
+    
+    <link rel="stylesheet" href="libs/css/vr.css">
+    <style>
+        #vr-wrap,#vr-wrap2{width:80%;margin:0 auto;}
+    </style>
+
+     <script type="text/javascript">
+    !function(a){function b(){var b=a.document,c=b.documentElement,d=c.getBoundingClientRect().width;document.documentElement.style.fontSize=20*(d/360)+"px"}window.addEventListener("DOMContentLoaded",function(){b()},!1),window.addEventListener("resize",function(){b()}),b()}(window);
+    </script>
+</head>
+<body>
+<div style="display:none;">
+    <!-- 微信分享缩略图 -->
+    <img src="images/wx300.jpg" />
+    <p>禅茶五味，不同'梵'响</p>
+</div>
+<!--#include file="inc/nav.html" -->
+<div class="sub-main">
+    <div class="sub-head cypp-head">
+        <div class="sub-head1 cypp-head1 animated fadeIn delay-1">&nbsp;</div>
+    </div>
+    <!-- 主内容开始 -->
+     <div class="cypp">
+        <div style="background-color:#000">
+            <div id="content">
+
+                <h4 style="color: white;">我们实际场景店铺图</h4>
+
+                <div id="vr-wrap" class="vr-wrap">
+
+                    <div class="vr-box"></div>
+                    <div id="vr-fullscreen-close1" class="vr-fullscreen-close"></div>
+                    <div class="vr-tip">
+                        <div class="vr-tip-ico holeOut"></div>
+                        <div class="vr-tip-text">
+                            <p>滑动图片 查看全景图</p>
+                            <p>点击图片&nbsp;&nbsp;进入全屏</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h4 style="color: white;">米家全景相机拍摄</h4>
+                <div id="vr-wrap2" class="vr-wrap">
+
+                    <div class="vr-box"></div>
+                    <div class="vr-fullscreen-close"></div>
+                    <div class="vr-tip">
+                        <div class="vr-tip-ico holeOut"></div>
+                        <div class="vr-tip-text">
+                            <p>滑动图片 查看全景图</p>
+                            <p>点击图片&nbsp;&nbsp;进入全屏</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+     <div class="next-bg">
+         <a href="ccww.shtml">
+              <img src="images/sub-next.png" class="next-img" alt=""><!-- 下一页 -->
+         </a>
+    </div>
+</div>
+<script type="text/javascript" src="libs/js/zepto.1.0.js"></script>
+<script type="text/javascript" src="libs/js/touch-0.2.14.min.js"></script>
+<script type="text/javascript" src="libs/js/lazyload.min.js"></script>
+
+<script src="libs/js/three.min.js"></script>
+<script src="libs/js/photo-sphere-viewer.min.js"></script>
+<script src="js/vr.js"></script>
+
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript">
+ $('.lazyload').imglazyload();
+
+ $(document).ready(function(){
+
+    var psv = createPhotoViewer('#vr-wrap', 
+        'images/ykt-xmbj-vr.jpg', 
+        '100%',
+        '282px'
+    );
+
+    var psv = createPhotoViewer('#vr-wrap2', 
+        'images/test-mi.jpg', 
+        '100%',
+        '282px'
+    ); 
+
+ })
+</script>
+</body>
+</html>

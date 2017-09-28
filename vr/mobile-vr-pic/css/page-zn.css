@@ -1,0 +1,37 @@
+/*茶禅五味*/
+.lazyload{width: 100%;height: 200px;}
+.ccww-head{background: url(../images/ccww-bg.jpg) repeat center center; background-size: 100% 100%;}
+.ccww-head1{background: url(../images/ccww-head1.png) repeat center center; background-size: 100% 100%;width:11.3rem;height: 9.475rem;position: absolute;top: 3.2rem;left: 3.3rem;}
+.ccww-head2{background: url(../images/ccww-head2.png) repeat center center; background-size: 100% 100%;width: 6.5rem;height: 11.25rem;position: absolute;top:12.7rem;left: 5.5rem;}
+
+/*茶品清单*/
+.cpqd img,.ccww img,.cypp img,.crcy img,.cdtz img{display: block;width: 100%;}
+.cpqd-head{background: url(../images/cpqd-bg.jpg) repeat center center; background-size: 100% 100%;}
+.cpqd-head1{background: url(../images/cpqd-head1.png) repeat center center; background-size: 100% 100%;width:9.55rem;height: 8.825rem;position: absolute;top: 3.5rem;left: 5rem;}
+.cpqd-head2{background: url(../images/cpqd-head2.png) repeat center center; background-size: 100% 100%;width: 10.05rem;height: 6.625rem;position: absolute;top:17.2rem;left: 2rem;}
+.cpqd-head3{background: url(../images/cpqd-head3.png) repeat center center; background-size: 100% 100%;width: 6.925rem;height: 6.8rem;position: absolute;top:17.3rem;left: 7.8rem;}
+
+/*茶店投资*/
+.cdtz-head{background: url(../images/cdtz-bg.jpg) repeat center center; background-size: 100% 100%;}
+.cdtz-head1{background: url(../images/cdtz-head1.png) repeat center center; background-size: 100% 100%;width: 12.375rem;height: 9.45rem;position: absolute;top: 3.2rem;left: 2.7rem;}
+.cdtz-head2{background: url(../images/cdtz-head2.png) repeat center center; background-size: 100% 100%;width: 6.7rem;height: 8.6rem;position: absolute;top: 15.3rem;left: 0rem;}
+.cdtz-head3{background: url(../images/cdtz-head3.png) repeat center center; background-size: 100% 100%;width:12.525rem;height: 9.175rem;position: absolute;top: 15rem;left: 5.5rem;}
+.cdtz-head4{background: url(../images/cdtz-head4.png) repeat center center; background-size: 100% 100%;width:3.325rem;height: 5.025rem;position: absolute;top: 19.4rem;left: 0rem;z-index: 20;}
+.tz-bg{background: url(../images/tz-bg.jpg) repeat center center; background-size: 100% 100%; overflow: hidden;}
+.tzp{background-color: #d9d0ba;width: 16.525rem;margin: 0 auto; padding-bottom:0.3rem;padding-top: 0.4rem;}
+.tzp p{ font-size: 0.6rem;color: #000;margin: 0 auto;background: url(../images/shuye.png) no-repeat 0.2rem 0.1rem;background-size: 0.725rem;padding-left: 1.1rem;line-height: 1rem;}
+.pctz{font-weight: bold;}
+.table-bg{width: 100%;background: url(../images/tz-bg2.jpg) repeat-y center center; background-size: 100% 100%; overflow: hidden;}
+.table-bg table{width: 90%;margin: 0 auto;text-align: center; font-size: 0.8rem;padding-bottom: 0.2rem;border-collapse: collapse;}
+.table-bg table tr td{width: 16%;padding:6px 0;background-color: #000000; color: #fff; border: 1px solid #fff;}
+.table-bg table tr .td-bc{background-color: #c9bc9c; color: #000; font-weight: bold;}
+
+/*茶人创业*/
+.crcy-head{background: url(../images/crcy-bg.jpg) repeat center center; background-size: 100% 100%;}
+.crcy-head1{background: url(../images/crcy-head1.png) repeat center center; background-size: 100% 100%;width:12.05rem;height: 8.425rem;position: absolute;top: 3.2rem;left: 3.3rem;}
+.crcy-head2{background: url(../images/crcy-head2.png) repeat center center; background-size: 100% 100%;width: 100%;height: 12.125rem;position: absolute;top:11.8rem;left: 0rem;}
+
+/*茶饮品牌*/
+.cypp-head{background: url(../images/cypp-bg.jpg) repeat center center; background-size: 100% 100%;}
+.cypp-head1{background: url(../images/cypp-head1.png) repeat center center; background-size: 100% 100%;width:10.325rem;height: 9.325rem;position: absolute;top: 3.4rem;left:4rem;}
+.cypp-gif{width: 4.575rem;height: 6.775rem;position: absolute;top: 3.2rem;left: 3.3rem;}

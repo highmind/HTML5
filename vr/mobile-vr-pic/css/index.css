@@ -1,0 +1,63 @@
+﻿html{font-size:20px;}
+html, body {
+    position: absolute;
+        width:100%;
+        height: 100%;
+        overflow:hidden;
+    }
+    body {
+        
+        background-color: #fff;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+
+.hide{display:none;}
+.delay-1{-webkit-animation-delay: 0.2s;animation-delay:0.2s;}
+.delay-2{-webkit-animation-delay: 0.4s;animation-delay:0.4s;}
+.delay-3{-webkit-animation-delay: 0.6s;animation-delay:0.6s;}
+.delay-4{-webkit-animation-delay: 0.8s;animation-delay:0.8s;}
+.delay-5{-webkit-animation-delay: 1.0s;animation-delay:1.0s;}
+.delay-6{-webkit-animation-delay: 1.6s;animation-delay:1.6s;}
+.delay-7{-webkit-animation-delay: 2.0s;animation-delay:2.0s;}
+
+.page{position:absolute;left:0;top:0;width:100%;height:100%;}
+.page img{display: block;}
+.page1{overflow: hidden; height: 32rem;}
+.index-bg{position: absolute; width: 100%; height: 100%; /*background: url(../images/index-bg.jpg) no-repeat center 0; background-size: 100% 100%;*/}
+#wfff{position:absolute;width:100%;height:100%;display: none;}
+.index-img1{position: absolute; top: 13.5rem; left: 0; width: 7.83rem; height: 11.8rem; background: url(../images/index-img1.png) no-repeat center 0; background-size: 100% 100%; z-index: 88;}
+.index-img2{position: absolute; top: 13rem; left: 6.5rem; width: 9.75rem; height: 13.93rem; background: url(../images/index-img2.png) no-repeat center 0; background-size: 100% 100%;z-index: 88;}
+.index-img3{position: absolute; top: 8.5rem; left: 0; width: 6.1rem; height: 2.25rem; background: url(../images/index-img3.png) no-repeat center 0; background-size: 100% 100%;z-index: 88;}
+.index-img4{position: absolute; top: 11rem; right: -1rem; width: 7.9rem; height: 2.33rem; background: url(../images/index-img4.png) no-repeat center 0; background-size: 100% 100%;z-index: 88;}
+.index-img5{position: absolute; top: 1rem; left: 50%; margin-left: -4.19rem; width: 8.38rem; height: 10.57rem; background: url(../images/index-img5.png) no-repeat center 0; background-size: 100% 100%;z-index: 88;}
+
+.page-main{position: relative; width: 100% ;height: 100%; background: url(../images/index-bg2.jpg); background-size: cover;}
+.page-main a{width: 6.28rem; height: 1.48rem;}
+.page-main a.index-nav7{width: 13.55rem; height: 1.48rem;}
+.index-nav1{position:absolute; left: 2rem; top: 37%; background:url(../images/index-nav1.png) no-repeat; background-size: 100% 100%;}
+.index-nav2{position:absolute; right: 2rem; top: 37%; background:url(../images/index-nav2.png) no-repeat; background-size: 100% 100%;}
+.index-nav3{position:absolute; left: 2rem; top: 45%; z-index:10;background:url(../images/index-nav3.png) no-repeat; background-size: 100% 100%;}
+.index-nav4{position:absolute; right: 2rem; top: 45%; z-index:20;background:url(../images/index-nav4.png) no-repeat; background-size: 100% 100%;}
+.index-nav5{position:absolute; left: 2rem; top: 53%; z-index:10;background:url(../images/index-nav5.png) no-repeat; background-size: 100% 100%;}
+.index-nav6{position:absolute; right: 2rem; top: 53%; z-index:20;background:url(../images/index-nav6.png) no-repeat; background-size: 100% 100%;}
+.index-nav7{position:absolute; left: 12%; top: 61%; z-index:20;background:url(../images/index-nav7.png) no-repeat; background-size: 100% 100%;}
+
+/*加载*/
+#yourindex .loadid{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top: -1.25rem;
+    margin-left: -1.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #ff0;
+}
+
+/*旋转*/
+
+

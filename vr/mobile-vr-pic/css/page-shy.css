@@ -1,0 +1,17 @@
+/* SunHongYe */
+.lazyload{height: 100px;}
+.img-con{width: 18rem;}
+.img-con img{display: block; width: 100%;}
+
+.cksk-img1{width: 100%; height: 7.9rem; background: url(../images/cksk-img1.jpg) no-repeat center 0; background-size: 100% 100%;}
+.cksk-img2{width: 100%; height: 7.42rem; background: url(../images/cksk-img2.jpg) no-repeat center 0; background-size: 100% 100%;}
+.cksk-img3{width: 100%; height: 6.78rem; background: url(../images/cksk-img3.jpg) no-repeat center 0; background-size: 100% 100%;}
+
+.cjqy-head{position: relative; width: 100%;height:24.48rem;background: url(../images/cjqy-head.jpg) no-repeat center center; background-size: 100% 100%; overflow: hidden;}
+.cjqy-head1{position: absolute; top:3.4rem;left:4rem; width:10.03rem;height:9.25rem; background: url(../images/cjqy-head1.png) no-repeat center center; background-size: 100% 100%;}
+.cjqy-head2{position: absolute; top:15.7rem;left: 0.5rem; width:7.75rem;height:5.53rem; background: url(../images/cjqy-head2.png) no-repeat center center; background-size: 100% 100%;}
+.cjqy-head3{position: absolute; top:18.5rem;left: 5.1rem; width:7.2rem;height:5.33rem; background: url(../images/cjqy-head3.png) no-repeat center center; background-size: 100% 100%;z-index: 10;}
+.cjqy-head4{position: absolute; top:11.6rem;left:12rem; width: 6.08rem;height:12.4rem; background: url(../images/cjqy-head4.png) no-repeat center center; background-size: 100% 100%;}
+.cjqy-img1{width: 100%; height: 7.9rem; background: url(../images/cjqy-img1.jpg) no-repeat center 0; background-size: 100% 100%;}
+.cjqy-img2{width: 100%; height: 7.42rem; background: url(../images/cjqy-img2.jpg) no-repeat center 0; background-size: 100% 100%;}
+.cjqy-img3{width: 100%; height: 6.78rem; background: url(../images/cjqy-img3.jpg) no-repeat center 0; background-size: 100% 100%;}
