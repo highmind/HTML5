@@ -1,4 +1,5 @@
 ### 移动端全景效果
+  * ![image](https://github.com/highmind/Study/raw/master/preview-img/vr-mobile-pic.png)
   * JS依赖
 
     1. zepto.js
