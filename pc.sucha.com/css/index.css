@@ -1,0 +1,21 @@
+.main-wrap{width: 100%;margin-top:103px;overflow: hidden;}
+.i-se1{width:100%;background: url(../images/i-se1.jpg) no-repeat center 0;}
+.i-se-con{display: block;width:1300px;height:873px;margin:0 auto;position: relative;}
+.i-se-img1{position: absolute;left:120px;top:82px;z-index:10;width: 490px;height: 264px;
+background:url(../images/i-se-img1.png) no-repeat;}
+
+.i-se2{width:100%;background: url(../images/i-se2.jpg) no-repeat center 0;}
+.i-se2 .i-se-con{height:869px;}
+
+
+.i-se3{width:100%;background: url(../images/i-se3.jpg) no-repeat center 0;}
+.i-se3 .i-se-con{height:875px;}
+
+.i-se4{width:100%;background: url(../images/i-se4.jpg) no-repeat center 0;}
+.i-se4 .i-se-con{height:873px;}
+
+.i-se5{width:100%;background: url(../images/i-se5.jpg) no-repeat center 0;}
+.i-se5 .i-se-con{height:873px;}
+
+.i-se6{width:100%;background: url(../images/i-se6.jpg) no-repeat center 0;}
+.i-se6 .i-se-con{height:878px;}
