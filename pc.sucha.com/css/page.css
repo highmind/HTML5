@@ -6,3 +6,21 @@
 .skcp-img{width:100%;display: block;margin:0 auto;}
 .sgzb-banner{width:100%;height:600px;background:url(../images/sgzb-banner.jpg) no-repeat center 0;}
 .sgzb-img{width:100%;display: block;margin:0 auto;}
+.wgtz-banner{width:100%;height:600px;background:url(../images/wgtz-banner.jpg) no-repeat center 0;}
+.wgtz-wrap{width:100%;background:url(../images/wgtz-bg.jpg);}
+.wgtz-d-wrap{padding-top:40px;width:1200px;margin:0 auto;border-bottom:2px dashed #fff;overflow:hidden;}
+.wgtz-d1-f{width:550px;float:left;}
+.wgtz-d1-r{margin-left:20px;float:left;width:614px;}
+.wgtz-title{margin-bottom:26px;font-size:30px;color:#fff;}
+.wgtz-d p{width:600px;margin-top:24px;font-size:24px;color:#fff;}
+.wgtz-d p span{color:#588f02;}
+.wgtz-img2,.wgtz-img3{display: block;margin:0 auto;}
+.tzxz-table{width:1200px;margin:30px auto;background-color: #1f1c1c;}
+.tzxz-table td{padding:16px 0;font-size:18px;text-align: center;background-color: #1f1c1c;border:1px solid #abb311;color:#fff;}
+.tzxz-table .boldTd{background-color:#abb311;color:#1f1c1c }
+
+.lxwm-banner{width:100%;height:600px;background:url(../images/lxwm-banner.jpg) no-repeat center 0;}
+.lxwm-wrap{width:100%;background:url(../images/wgtz-bg.jpg);}
+.center-img{display: block;margin:0 auto;}
+.lxwm-inner{width:1200px;margin:0 auto;padding:26px 0;}
+.lxwm-inner{text-align: center;color:#fff;font-size:26px;}
